@@ -15180,11 +15180,4 @@ SKILL_DESCRIPT = {
 	[SKID.GD_ITEMEMERGENCYCALL] = {
 
 	},
-
-	[SKID.GM_BLESSING] = {
-		"GM's Blessing",
-		"Max Level:^777777 1 ^000000",
-		"Type:^33cc00 Active ^000000",
-		"Effect:^777777 Share your blessing with others. ^000000",
-	},
 }

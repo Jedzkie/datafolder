@@ -7955,11 +7955,4 @@ SKILL_INFO_LIST = {
 		"GD_ITEMEMERGENCYCALL";
 		SkillName = "Item Emergency Call",
 	},
-
-	[SKID.GM_BLESSING] = {
-		"GM_BLESSING";
-		SkillName = "GM's Blessing",
-		MaxLv = 1,
-		SpAmount = { 10 },
-	},
 }
