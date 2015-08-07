@@ -52,11 +52,11 @@ ChatSubWnd_2 = {
 	option13 = 0,
 	option14 = 0,
 	option15 = 0,
-	option16 = 0,
-	option17 = 0,
-	option18 = 0,
-	option19 = 0,
-	option20 = 0,
-	option21 = 0,
+	option16 = 1,
+	option17 = 1,
+	option18 = 1,
+	option19 = 1,
+	option20 = 1,
+	option21 = 1,
 }
 
