@@ -142,9 +142,9 @@ Ppl#
 [Alt] + [Home]: Turns Ground Cursor On or Off#
 [Insert]: Makes you sit or stand. (Hotkey to toggle between /sit and /stand)#
 Congratulations! You are the MVP! Your reward item is #
-!!#
+ !!#
 Congratulations! You are the MVP! Your reward EXP Points are #
-acquired!#
+ !!#
 You are the MVP, but you can't take the reward because you are over your weight limit.#
 There is no such character name or the user is offline.#
  doesn't want to receive your messages.#
@@ -176,13 +176,13 @@ Tip of the Day#
 ^3850a0Did you know...?^709fed#
 Display at startup#
 /tip: Opens ''Tip of the Day''#
-Total Players currently connected [%d]#
+Total players currently connected [%d]#
 (%s) has entered.#
 (%s) has left.#
 (%s) was kicked out.#
 %d ea.#
-%s: %d ea.#
-%s %s: %d#
+%s : %d ea.#
+%s %s : %d#
 Available Items to sell#
 Shop Items#
 Unknown Area#
@@ -410,7 +410,7 @@ Level#
 HP#
 Size#
 Type#
-MDEF#
+Mdef#
 Attribute#
 Neutral#
 Water#
@@ -455,7 +455,7 @@ You are prohibited to log in until %s.#
 's Earth #
 38.144.194.2#
 6900#
-http://iro.raganrokonline.com#
+http://eternal-ro.net#
 Kill %s#
 Very Strong #
 Very Very Strong #
@@ -480,9 +480,9 @@ Power-Thrust Initiated.#
 Power-Thrust Canceled.#
 Maximize-Power Initiated.#
 Maximize-Power Canceled.#
- [^ff0000New Server!^000000]#
+ [^0000ffNew Server!^000000]#
  (%d)#
- (On the maintenance)#
+ [^ff0000Server Maintenance^000000]#
 Guildsman %s has connected.#
 Guildsman %s has disconnected.#
 You got %s Base EXP.#
@@ -664,7 +664,7 @@ Please visit the Raganrok Homepage and make a user account. It's free for the th
 You cannot use this item while sitting.#
 Your use of skills and chat will be blocked for the next %d minutes.#
 Your use of skills and chat have been reinstated.#
-- [Not equipped]#
+ - [Not equipped]#
 Very Hungry#
 Hungry#
 Neutral#
@@ -694,7 +694,7 @@ Internet Cafe Time Plan has been ended. Would you like to continue the game with
 #
 Your lack of zeny or your zeny limit have prevented you from performing this action.#
 Your character has fainted. Push the ESC key to restart.#
- - %d obtained.#
+ - %d obtained#
 Spell List#
 /minimize#
 This item has been damaged.#
@@ -760,8 +760,8 @@ Chat logs are not accepted as evidence for any ill-mannered violation on account
 I love you.#
 Please adjust your monitor/video brightness if effects appear too bright.#
 If full screen mode fails to work, it is suggested you alt+tab [or ctrl+esc] to inactivate and reactivate the Ragnarok Client.#
-(%d players) - Pay to Play Server#
-(%d players) - Free Server#
+ (%d players) - Pay to Play Server#
+ (%d players) - Free Server#
 Trial players can't connect Pay to Play Server.#
 Right click menu skills for F9 are Enabled.[/q1 ON]#
 Right click menu skills for F9 are Disabled.[/q1 OFF]#
@@ -939,9 +939,9 @@ Homunculus Skill List#
 Please give your Homunculus a name no longer than 23 letters.#
 You can name a Homunculus only once. You have entered the name, ^0000ff %s^000000. Would you like to continue?#
 (Away)#
-[Automated Message]#
+[Away Message] #
 Send an automated message while you are away.#
-Cancel automated away message.#
+Cancel automated Away message.#
 Please enter Away Message.#
 /fsh#
 /spin#
@@ -1251,8 +1251,8 @@ You will receive 1.5 times more EXP from hunting monsters for the next 30 minute
 This character will not receive any EXP penalty if killed within the next 30 minutes.#
 Regular item drops from monsters will be doubled for the next 30 minutes.#
 Boss Monster Map Information for the next 10 minutes.#
-Do you really want to purchase %d? %s points will be deducted from your total Kafra Credit Points.#
-You do not have enough Kafra Credit Points.#
+Do you really want to purchase '%s'? %d points will be deducted from your total Cash Points.#
+ You do not have enough Cash Points.#
 ^ff0000Expiration Date: %s^000000#
 The '%s' item will disappear in %d minutes.#
  '%s' item will be deleted from the Inventory in 1 minute.#
@@ -1390,7 +1390,7 @@ Unable to organize a party in this map.#
 Simple Item Shop#
 Han Coin : %d Han Coin#
 RoK Point : %d RoK Point#
-Free Cash : %d Cash#
+RoK Point : %d RoK Point#
 An user of this server cannot connect to free server#
 Your password has expired. Please log in again#
 3rd Job#
@@ -1465,11 +1465,11 @@ Dismount Dragon.#
 Dismount Magic Gear.#
 Item#
 Cash#
-Weapons#
-Armors#
+Weapon#
+Armor#
 Ammo#
 Card#
-Etc#
+Misc#
 Guitar#
 Seems that you have screwed something up. Hack shield file does not have the correct file version. Please reinstall the client and try again to screw it.#
 The skill requires a spellbook.#
@@ -1481,8 +1481,8 @@ Brush is required.#
 Waiting time has been exceeded. Please log in again.#
 DANGER! The same account is logged in already. Please log in again after correcting the duty to stop the progression of mobile authentication for a while.#
 DANGER!! Located in the same account is now waiting for mobile authentication. Please log in again after correcting the duty to stop the progression of mobile authentication for a while.#
-Game setting window#
-Graphic setting#
+Game Setting Window#
+Graphic Setting#
 Sound Setting#
 Press a key to assign. Pressing 'ESC' will remove the assigned key.#
 Unable to specify a single key.#
@@ -1603,16 +1603,16 @@ Does not display the icon field.#
 Field notification was moved.#
 Admission pending notification of the battlefield#
 Anyone#
- [%s] deal '%d' damage on you.#
- [%s] received a damage from [%s] with '%d' damage.#
- [%s] received '%d' damage.#
- [%s] deal damage to [%s] with '%d' damage.#
+[%s] deal '%d' damage on you.#
+[%s] received a damage from [%s] with '%d' damage.#
+[%s] received '%d' damage.#
+[%s] deal damage to [%s] with '%d' damage.#
 You dropped %s (%d).#
 [%s] Quest - defeated [%s] progress (%d/%d)#
 The Quest %s has been removed.#
 [%s] has #
-%d' EXP #
-%d' Job EXP #
+'%d' EXP#
+'%d' Job EXP#
  gained.#
  has lost.#
 From [%s], '%d' coins were stolen.#
@@ -1806,7 +1806,7 @@ The item price is too high.#
 General#
 Costume#
 minute#
-second#
+ second#
 Please enter the name of the item.#
 The item you have entered does not exist.#
 The map is not available.#
@@ -1860,7 +1860,7 @@ Used cache: %s C#
 You cannot summon a monster in this area.#
 The cache usage has exceeded the total amount of #
 Content has been saved in [SaveData_ExMacro%d]#
-%d seconds left until you can use #
+%d seconds left until you can use#
 ~[창]을 장착한 상태여야 합니다.#
 Available only on the dragon.#
 Unable to proceed due to exceeding capacity.#

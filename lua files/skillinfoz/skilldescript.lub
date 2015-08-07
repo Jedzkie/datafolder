@@ -1,32 +1,54 @@
 SKILL_DESCRIPT = {
 
 	[SKID.NV_BASIC] = {
-
 		"Basic Skill",
-		"MAX Lv : 9",
-		"Type:^000099 Passive ^000000",
-		"^777777Enable to apply Basic Interface Skills. ^000000",
-		"[Lv 1]: Enables Trading",
-		"^777777Allows the trading of items with other characters. ^990000Right click on a character to initiate a trade.^000000",
-		"[Lv 2]: Enables Emotions",
-		"^777777Use Alt+(0~9) and",
-		"Ctrl+(1,-,=.\) keys to express emotions. Alt+L will open a window with additional Emotion icons.^000000",
-		"[Lv 3]: Enables Sitting",
-		"^777777Enables the character to sit, which doubles HP/SP Recovery Speed. ^990000To sit, press the Insert key or enter the /sit command in the Chat Window.^000000",
-		"[Lv 4]: Enables Chat Room Creation",
-		"^777777Allows character to open Chat Rooms by pressing the Alt+C keys or the Chat button^FFFFFF    ^777777in the Basic Information Window.^000000",
-		"[Lv 5]: Join a Party",
-		"^777777Character can join a party.^000000 ",
-		"[Lv 6]: Enables Use of Kafra Storage",
-		"^777777Allows use of Kafra Storage.^000000",
-		"[Lv 7]: Organize Party",
-		"^777777Create a party by using the /organize \"[Party Name]\" command. Set party options by using the Party Window (Alt+Z).^000000",
-		"[Lv 9]: Enables Change to First Job Class",
-		"^777777Qualifies character for change from Novice to one of the First Job Classes.^000000",
+		"Max Level:^777777 9^000000",
+		"Type:^000099 Passive^000000",
+		"^777777Enable to apply Basic Interface Skills.^000000",
+		"[LV 1] Enable to initialize Trade.",
+		"^777777Allow to Trade items with another Character.^000000",
+		"[LV 2] Enable to express Emotions.",
+		"^777777Using Alt+0~9 keys, Allow to express one's emotions. For emotions list push Alt+M.^000000",
+		"[LV 3] Enable to Sit",
+		"^777777Allow to regenerate HP/SP two times faster with a sit gesture. To use type /sit or hit Insert.^000000",
+		"[LV 4] Enable to open one's own Chat Room",
+		"^777777Allow to open a Chat Room. Push Alt+C to create.^000000",
+		"[LV 5] Enable to join a Party",
+		"^777777Allow to join a party.^000000",
+		"^990000Command:/join [Party Name]^000000^777777 or wait for invitation.^000000",
+		"[LV 6] Enable to use Kafra Storage",
+		"^777777Allow to use an extra inventory that can hold 300 types of items. Talk to a Kafra to access it. All town Kafras offer this service, but some located in the wilderness may not.^000000",
+		"[LV 7] Enable to organize one's own Party",
+		"^777777Allow to organize a party.^000000",
+		"^990000Command:/organize [Party Name]^000000",
+		"[LV 9] Enable to Transform into the 1st profession",
+		"^777777Allow to change one's Job into the 1st profession.^000000",
 	},
-
+	[SKID.NV_FIRSTAID] = {
+		"First Aid",
+		"Max Level:^777777 1^000000",
+		"Type:^33cc00 Active^000000",
+		"SP Cost:^777777 3^000000",
+		"Target:^777777 Self^000000",
+		"Cast Time:^777777 Instant^000000",
+		"Cool Down:^777777 0.1 sec^000000",
+		"Duration:^777777 Instant^000000",
+		"Effect:^777777 Heal yourself for 5 HP. Not a crazy powerful skill, but mages seem to like it for saving money on healing items.^000000",
+	},
+	[SKID.NV_TRICKDEAD] = {
+		"Play Dead",
+		"Max Level:^777777 1^000000",
+		"Type:^33cc00 Active^000000",
+		"SP Cost:^777777 5^000000",
+		"Target:^777777 Self^000000",
+		"Cast Time:^777777 Instant^000000",
+		"Cool Down:^777777 None^000000",
+		"Effect:^777777 You lay on the ground like you were dead and aggressive monsters won't target you. You can't recover HP or SP while pretending to be dead. You can Play Dead as long as you want.^000000",
+		"^777777Casting Play Dead a second time cancels it, letting you move again. Once you choose another Job, you lose the ability to use this skill.^000000",
+	},
+	
+	-- Swordsman Skills --
 	[SKID.SM_SWORD] = {
-
 		"Sword Mastery",
 		"MAX Lv : 10",
 		"Type:^000099 Passive ^000000",
@@ -2986,31 +3008,6 @@ SKILL_DESCRIPT = {
 		"[LV 8]^777777 900% ATK + Bonus, timer starts at 8.5 ^000000",
 		"[LV 9]^777777 950% ATK + Bonus, timer starts at 9 ^000000",
 		"[LV 10]^777777 1000% ATK + Bonus, timer starts at 9.5 ^000000",
-	},
-
-	[SKID.NV_FIRSTAID] = {
-
-		"First Aid",
-		"Max Level:^777777 1 ^000000",
-		"Type:^33cc00 Active ^000000",
-		"SP Cost:^777777 3 ^000000",
-		"Target:^777777 Self ^000000",
-		"Cast Time:^777777 Instant ^000000",
-		"Cool Down:^777777 0.1 sec ^000000",
-		"Duration:^777777 Instant ^000000",
-		"Effect:^777777 Heal yourself for 5 HP. Not a crazy powerful skill, but mages seem to like it for saving money on healing items. ^000000",
-	},
-
-	[SKID.NV_TRICKDEAD] = {
-
-		"Trick Dead",
-		"Max Level:^777777 1 ^000000",
-		"Type:^33cc00 Active ^000000",
-		"SP Cost:^777777 5 ^000000",
-		"Target:^777777 Self ^000000",
-		"Cast Time:^777777 Instant ^000000",
-		"Cool Down:^777777 None ^000000",
-		"Effect:^777777 You lay on the ground like you were dead and aggressive monsters won't target you. You can't recover HP or SP while pretending to be dead. You can Trick Dead as long as you want. Casting Trick Dead a second time cancels it, letting you move again. Once you choose another Job, you lose the ability to use this skill. ^000000",
 	},
 
 	[SKID.SM_MOVINGRECOVERY] = {
@@ -15184,4 +15181,10 @@ SKILL_DESCRIPT = {
 
 	},
 
+	[SKID.GM_BLESSING] = {
+		"GM's Blessing",
+		"Max Level:^777777 1 ^000000",
+		"Type:^33cc00 Active ^000000",
+		"Effect:^777777 Share your blessing with others. ^000000",
+	},
 }

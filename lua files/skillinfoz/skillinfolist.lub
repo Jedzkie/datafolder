@@ -1,18 +1,159 @@
 SKILL_INFO_LIST = {
 
+	-- Novice Skills --
 	[SKID.NV_BASIC] = {
-	
 		"NV_BASIC";
 		SkillName = "Basic Skill",
 		MaxLv = 9,
 	},
-
+	[SKID.NV_FIRSTAID] = {
+		"NV_FIRSTAID";
+		SkillName = "First Aid",
+		MaxLv = 1,
+		Type = "Quest"
+	},
+	[SKID.NV_TRICKDEAD] = {
+		"NV_TRICKDEAD";
+		SkillName = "Play Dead",	
+		MaxLv = 1,
+		Type = "Quest"
+	},
+	
+	-- Acolyte Skills --
+	[SKID.AL_ANGELUS] = {
+		"AL_ANGELUS";
+		SkillName = "Angelus",
+		MaxLv = 10,
+		SpAmount = { 23,26, 29, 32, 35, 38, 41, 44, 47, 50 },
+		_NeedSkillList = {
+			{ SKID.AL_DP,3 }
+		}
+	},
+	[SKID.AL_BLESSING] = {
+		"AL_BLESSING";
+		SkillName = "Blessing",		
+		MaxLv = 10,
+		SpAmount = { 28, 32, 36, 40, 44, 48, 52, 56, 60, 64 },
+		_NeedSkillList = {
+			{ SKID.AL_DP,5 }
+		}
+	},
+	[SKID.AL_CURE] = {
+		"AL_CURE";
+		SkillName = "Cure",
+		MaxLv = 1,
+		_NeedSkillList = {
+			{ SKID.AL_HEAL,2 }
+		},
+		NeedSkillList = {
+			[JOBID.JT_CRUSADER] = {
+				{ SKID.CR_TRUST,5 }
+			}
+		}
+	},
+	[SKID.AL_CRUCIS] = {
+		"AL_CRUCIS";
+		SkillName = "Signum Crucis",		
+		MaxLv = 10,
+		_NeedSkillList = {
+			{ SKID.AL_DEMONBANE,3 }
+		}
+	},
+	[SKID.AL_DECAGI] = {
+		"AL_DECAGI";
+		SkillName = "Decrease AGI",		
+		MaxLv = 10,
+		SpAmount = { 15, 17, 19, 21, 23, 25, 27, 29, 31, 33 },
+		_NeedSkillList = {
+			{ SKID.AL_INCAGI, 1 }
+		}
+	},
+	[SKID.AL_DEMONBANE] = {
+		"AL_DEMONBANE";
+		SkillName = "Demon Bane",
+		MaxLv = 10,
+		_NeedSkillList = {
+			{ SKID.AL_DP,3 }
+		}
+	},
+	[SKID.AL_DP] = {
+		"AL_DP";
+		SkillName = "Divine Protection",
+		MaxLv = 10,
+		NeedSkillList = {
+			[JOBID.JT_CRUSADER] = {
+				{ SKID.AL_CURE,1 }
+			}
+		}
+	},
+	[SKID.AL_INCAGI] = {
+		"AL_INCAGI";
+		SkillName = "Increase AGI",
+		MaxLv = 10,
+		SpAmount = { 18, 21, 24, 27, 30, 33, 36, 39, 42, 45 },
+		_NeedSkillList = {
+			{ SKID.AL_HEAL,3}
+		}
+	},
+	[SKID.AL_HEAL] = {
+		"AL_HEAL";
+		SkillName = "Heal",
+		MaxLv = 10,
+		SpAmount = { 13, 16, 19, 22, 25, 28, 31, 34, 37, 40 },
+		NeedSkillList = {
+			[JOBID.JT_CRUSADER] = {
+				{ SKID.CR_TRUST,10 },
+				{ SKID.AL_DEMONBANE,5 }
+			}
+		}
+	},
+	[SKID.AL_HOLYWATER] = {
+		"AL_HOLYWATER";
+		SkillName = "Aqua Benedicta",
+		MaxLv = 1,
+	},
+	[SKID.AL_PNEUMA] = {
+		"AL_PNEUMA";
+		SkillName = "Pneuma",
+		MaxLv = 1,
+		_NeedSkillList = { 
+			{ SKID.AL_WARP,4 }
+		}
+	},
+	[SKID.AL_RUWACH] = {
+		"AL_RUWACH";
+		SkillName = "Ruwach",
+		MaxLv = 1,		
+	},
+	[SKID.AL_TELEPORT] = {
+		"AL_TELEPORT";
+		SkillName = "Teleport",
+		MaxLv = 2,
+		_NeedSkillList = {
+			{ SKID.AL_RUWACH,1 }
+		}
+	},
+	[SKID.AL_WARP] = {
+		"AL_WARP";
+		SkillName = "Warp Portal",
+		MaxLv = 4,
+		_NeedSkillList = {
+			{ SKID.AL_TELEPORT,2 }
+		}
+	},
+	[SKID.AL_HOLYLIGHT] = {
+		"AL_HOLYLIGHT";
+		SkillName = "Holy Light",
+		MaxLv = 1,
+		Type = "Quest",
+	},
+	
+	-- Swordsman Skills --
 	[SKID.SM_SWORD] = {
 		"SM_SWORD";
 		SkillName = "Sword Mastery",
 		MaxLv = 10,
 	},
-
 	[SKID.SM_TWOHAND] = {
 		"SM_TWOHAND";
 		SkillName = "Two-Handed Sword Mastery",
@@ -21,27 +162,23 @@ SKILL_INFO_LIST = {
 			{ SKID.SM_SWORD,1 }
 		}
 	},
-
 	[SKID.SM_RECOVERY] = {
 		"SM_RECOVERY";
-		SkillName = "Increase Recuperative Power",
+		SkillName = "Increase HP Recovery",
 		MaxLv = 10,
 	},
-
 	[SKID.SM_BASH] = {
 		"SM_BASH";
 		SkillName = "Bash",
 		MaxLv = 10,
 		SpAmount = { 8, 8, 8, 8, 8, 15, 15, 15, 15, 15 }
 	},
-
 	[SKID.SM_PROVOKE] = {
 		"SM_PROVOKE";
 		SkillName = "Provoke",
 		MaxLv = 10,
 		SpAmount = { 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 }
 	},
-
 	[SKID.SM_MAGNUM] = {
 		"SM_MAGNUM";
 		SkillName = "Magnum Break",
@@ -50,7 +187,6 @@ SKILL_INFO_LIST = {
 			{ SKID.SM_BASH,5 }
 		}
 	},
-
 	[SKID.SM_ENDURE] = {
 		"SM_ENDURE";
 		SkillName = "Endure",
@@ -59,25 +195,41 @@ SKILL_INFO_LIST = {
 			{ SKID.SM_PROVOKE,5 }
 		}
 	},
-
+	[SKID.SM_AUTOBERSERK] = {
+		"SM_AUTOBERSERK";
+		SkillName = "Berserk",
+		MaxLv = 1,
+		Type = "Quest"
+	},
+	[SKID.SM_MOVINGRECOVERY] = {
+		"SM_MOVINGRECOVERY";
+		SkillName = "HP Recovery While Moving",
+		MaxLv = 1,
+		Type = "Quest"
+	},
+	[SKID.SM_FATALBLOW] = {
+		"SM_FATALBLOW";
+		SkillName = "Fatal Blow",
+		MaxLv = 1,
+		Type = "Quest"
+	},
+	
+	-- Magician Skills --
 	[SKID.MG_SRECOVERY] = {
 		"MG_SRECOVERY";
-		SkillName = "Increase Spiritual Power",
+		SkillName = "Increase SP Recovery",
 		MaxLv = 10,
 	},
-
 	[SKID.MG_SIGHT] = {
 		"MG_SIGHT";
 		SkillName = "Sight",
 		MaxLv = 1,
 	},
-
 	[SKID.MG_NAPALMBEAT] = {
 		"MG_NAPALMBEAT";
 		SkillName = "Napalm Beat",
 		MaxLv = 10,
 	},
-
 	[SKID.MG_SAFETYWALL] = {
 		"MG_SAFETYWALL";
 		SkillName = "Safety Wall",
@@ -94,7 +246,6 @@ SKILL_INFO_LIST = {
 			}
 		}
 	},
-
 	[SKID.MG_SOULSTRIKE] = {
 		"MG_SOULSTRIKE";
 		SkillName = "Soul Strike",
@@ -104,14 +255,12 @@ SKILL_INFO_LIST = {
 			{ SKID.MG_NAPALMBEAT,4 }
 		}
 	},
-
 	[SKID.MG_COLDBOLT] = {
 		"MG_COLDBOLT";
 		SkillName = "Cold Bolt",
 		MaxLv = 10,
 		SpAmount = { 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 }
 	},
-
 	[SKID.MG_FROSTDIVER] = {
 		"MG_FROSTDIVER";
 		SkillName = "Frost Diver",
@@ -120,13 +269,17 @@ SKILL_INFO_LIST = {
 			{ SKID.MG_COLDBOLT,5 }
 		}
 	},
-
 	[SKID.MG_STONECURSE] = {
 		"MG_STONECURSE";
 		SkillName = "Stone Curse",
 		MaxLv = 10,
 	},
-
+	[SKID.MG_FIREBOLT] = {
+		"MG_FIREBOLT";
+		SkillName = "Fire Bolt",
+		MaxLv = 10,
+		SpAmount = { 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 }
+	},
 	[SKID.MG_FIREBALL] = {
 		"MG_FIREBALL";
 		SkillName = "Fire Ball",
@@ -135,7 +288,6 @@ SKILL_INFO_LIST = {
 			{ SKID.MG_FIREBOLT, 4 }
 		}
 	},
-
 	[SKID.MG_FIREWALL] = {
 		"MG_FIREWALL";
 		SkillName = "Fire Wall",
@@ -145,21 +297,12 @@ SKILL_INFO_LIST = {
 			{ SKID.MG_FIREBALL,5 }
 		}
 	},
-
-	[SKID.MG_FIREBOLT] = {
-		"MG_FIREBOLT";
-		SkillName = "Fire Bolt",
-		MaxLv = 10,
-		SpAmount = { 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 }
-	},
-
 	[SKID.MG_LIGHTNINGBOLT] = {
 		"MG_LIGHTNINGBOLT";
 		SkillName = "Lightning Bolt",
 		MaxLv = 10,
 		SpAmount = { 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 }
 	},
-
 	[SKID.MG_THUNDERSTORM] = {
 		"MG_THUNDERSTORM";
 		SkillName = "Thunder Storm",
@@ -169,150 +312,19 @@ SKILL_INFO_LIST = {
 			{ SKID.MG_LIGHTNINGBOLT,4 }
 		}
 	},
-
-	[SKID.AL_DP] = {
-		"AL_DP";
-		SkillName = "Divine Protection",
-		MaxLv = 10,
-		NeedSkillList = {
-			[JOBID.JT_CRUSADER] = {
-				{ SKID.AL_CURE,1 }
-			}
-		}
-	},
-
-	[SKID.AL_DEMONBANE] = {
-		"AL_DEMONBANE";
-		SkillName = "Demon Bane",
-		MaxLv = 10,
-		_NeedSkillList = {
-			{ SKID.AL_DP,3 }
-		}
-	},
-
-	[SKID.AL_RUWACH] = {
-		"AL_RUWACH";
-		SkillName = "Ruwach",
-		MaxLv = 1,		
-	},
-
-	[SKID.AL_PNEUMA] = {
-		"AL_PNEUMA";
-		SkillName = "Pneuma",
+	[SKID.MG_ENERGYCOAT] = {
+		"MG_ENERGYCOAT";
+		SkillName = "Energy Coat",
 		MaxLv = 1,
-		_NeedSkillList = { 
-			{ SKID.AL_WARP,4 }
-		}
+		Type = "Quest",
 	},
 
-	[SKID.AL_TELEPORT] = {
-		"AL_TELEPORT";
-		SkillName = "Teleportation",
-		MaxLv = 2,
-		_NeedSkillList = {
-			{ SKID.AL_RUWACH,1 }
-		}
-	},
-
-	[SKID.AL_WARP] = {
-		"AL_WARP";
-		SkillName = "Warp Portal",
-		MaxLv = 4,
-		_NeedSkillList = {
-			{ SKID.AL_TELEPORT,2 }
-		}
-	},
-
-	[SKID.AL_HEAL] = {
-		"AL_HEAL";
-		SkillName = "Heal",
-		MaxLv = 10,
-		SpAmount = { 13, 16, 19, 22, 25, 28, 31, 34, 37, 40 },
-		NeedSkillList = {
-			[JOBID.JT_CRUSADER] = {
-				{ SKID.CR_TRUST,10 },
-				{ SKID.AL_DEMONBANE,5 }
-			}
-		}
-	},
-
-	[SKID.AL_INCAGI] = {
-		"AL_INCAGI";
-		SkillName = "Increase Agility",
-		MaxLv = 10,
-		SpAmount = { 18, 21, 24, 27, 30, 33, 36, 39, 42, 45 },
-		_NeedSkillList = {
-			{ SKID.AL_HEAL,3}
-		}
-	},
-
-	[SKID.AL_DECAGI] = {
-		"AL_DECAGI";
-		SkillName = "Decrease Agility",		
-		MaxLv = 10,
-		SpAmount = { 15, 17, 19, 21, 23, 25, 27, 29, 31, 33 },
-		_NeedSkillList = {
-			{ SKID.AL_INCAGI, 1 }
-		}
-	},
-
-	[SKID.AL_HOLYWATER] = {
-		"AL_HOLYWATER";
-		SkillName = "Aqua Benedicta",
-		MaxLv = 1,
-	},
-
-	[SKID.AL_CRUCIS] = {
-		"AL_CRUCIS";
-		SkillName = "Signum Crucis",		
-		MaxLv = 10,
-		_NeedSkillList = {
-			{ SKID.AL_DEMONBANE,3 }
-		}
-	},
-
-	[SKID.AL_ANGELUS] = {
-		"AL_ANGELUS";
-		SkillName = "Angelus",
-		MaxLv = 10,
-		SpAmount = { 23,26, 29, 32, 35, 38, 41, 44, 47, 50 },
-		_NeedSkillList = {
-			{ SKID.AL_DP,3 }
-		}
-
-	},
-
-	[SKID.AL_BLESSING] = {
-		"AL_BLESSING";
-		SkillName = "Blessing",		
-		MaxLv = 10,
-		SpAmount = { 28, 32, 36, 40, 44, 48, 52, 56, 60, 64 },
-		_NeedSkillList = {
-			{ SKID.AL_DP,5 }
-		}
-
-	},
-
-	[SKID.AL_CURE] = {
-		"AL_CURE";
-		SkillName = "Cure",
-		MaxLv = 1,
-		_NeedSkillList = {
-			{ SKID.AL_HEAL,2 }
-		},
-		NeedSkillList = {
-			[JOBID.JT_CRUSADER] = {
-				{ SKID.CR_TRUST,5 }
-			}
-		}
-	},
-
+	-- Merchant Skills --
 	[SKID.MC_INCCARRY] = {
 		"MC_INCCARRY";
 		SkillName = "Enlarge Weight Limit",
 		MaxLv = 10,
 	},
-
 	[SKID.MC_DISCOUNT] = {
 		"MC_DISCOUNT";
 		SkillName = "Discount",
@@ -321,7 +333,6 @@ SKILL_INFO_LIST = {
 			{ SKID.MC_INCCARRY,3 }
 		}
 	},
-
 	[SKID.MC_OVERCHARGE] = {
 		"MC_OVERCHARGE";
 		SkillName = "Overcharge",
@@ -330,7 +341,6 @@ SKILL_INFO_LIST = {
 			{ SKID.MC_DISCOUNT,3 }
 		}
 	},
-
 	[SKID.MC_PUSHCART] = {
 		"MC_PUSHCART";
 		SkillName = "Pushcart",
@@ -339,10 +349,9 @@ SKILL_INFO_LIST = {
 			{ SKID.MC_INCCARRY,5 }
 		}
 	},
-
 	[SKID.MC_IDENTIFY] = {
 		"MC_IDENTIFY";
-		SkillName = "Identify",
+		SkillName = "Item Appraisal",
 		MaxLv = 1,
 	},
 
@@ -354,20 +363,37 @@ SKILL_INFO_LIST = {
 			{ SKID.MC_PUSHCART,3 }
 		}
 	},
-
 	[SKID.MC_MAMMONITE] = {
 		"MC_MAMMONITE";
 		SkillName = "Mammonite",
 		MaxLv = 10,
 		SpAmount = { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }
 	},
-
+	[SKID.MC_CARTREVOLUTION] = {
+		"MC_CARTREVOLUTION";
+		SkillName = "Cart Revolution",
+		MaxLv = 1,
+		Type = "Quest",
+	},
+	[SKID.MC_CHANGECART] = {
+		"MC_CHANGECART";
+		SkillName = "Change Cart",
+		MaxLv = 1,
+		Type = "Quest",
+	},
+	[SKID.MC_LOUD] = {
+		"MC_LOUD";
+		SkillName = "Crazy Uproar",
+		MaxLv = 1,
+		Type = "Quest",
+	},
+	
+	-- Archer Skills --
 	[SKID.AC_OWL] = {
 		"AC_OWL";
 		SkillName = "Owl's Eye",
 		MaxLv = 10,
 	},
-
 	[SKID.AC_VULTURE] = {
 		"AC_VULTURE";
 		SkillName = "Vulture's Eye",
@@ -381,20 +407,18 @@ SKILL_INFO_LIST = {
 			}
 		}
 	},
-
 	[SKID.AC_CONCENTRATION] = {
 		"AC_CONCENTRATION";
-		SkillName = "Attention Concentrate",
+		SkillName = "Improve Concentration",
 		MaxLv = 10,
 		SpAmount = { 25, 30, 35, 40, 45, 50, 55, 60, 65, 70 },
 		_NeedSkillList = {
 			{ SKID.AC_VULTURE,1 }
 		}
 	},
-
 	[SKID.AC_DOUBLE] = {
 		"AC_DOUBLE";
-		SkillName = "Double Strafing",
+		SkillName = "Double Strafe",
 		MaxLv = 10,
 		NeedSkillList = {
 			[JOBID.JT_ROGUE] = {
@@ -402,7 +426,6 @@ SKILL_INFO_LIST = {
 			}
 		}
 	},
-
 	[SKID.AC_SHOWER] = {
 		"AC_SHOWER";
 		SkillName = "Arrow Shower",
@@ -411,25 +434,36 @@ SKILL_INFO_LIST = {
 			{ SKID.AC_DOUBLE,5 }
 		}
 	},
+	[SKID.AC_MAKINGARROW] = {
+		"AC_MAKINGARROW";
+		SkillName = "Arrow Crafting",
+		MaxLv = 1,
+		Type = "Quest"
+	},
 
+	[SKID.AC_CHARGEARROW] = {
+		"AC_CHARGEARROW";
+		SkillName = "Arrow Repel",
+		MaxLv = 1,
+		Type = "Quest"
+	},
+	
+	-- Thief Skills --
 	[SKID.TF_DOUBLE] = {
 		"TF_DOUBLE";
 		SkillName = "Double Attack",
 		MaxLv = 10,
 	},
-
 	[SKID.TF_MISS] = {
 		"TF_MISS";
-		SkillName = "Increase Dodge",
+		SkillName = "Improve Dodge",
 		MaxLv = 10,
 	},
-
 	[SKID.TF_STEAL] = {
 		"TF_STEAL";
 		SkillName = "Steal",
 		MaxLv = 10,
 	},
-
 	[SKID.TF_HIDING] = {
 		"TF_HIDING";
 		SkillName = "Hiding",
@@ -439,13 +473,11 @@ SKILL_INFO_LIST = {
 			{ SKID.TF_STEAL,5 }
 		}
 	},
-
 	[SKID.TF_POISON] = {
 		"TF_POISON";
 		SkillName = "Envenom",
 		MaxLv = 10,
 	},
-
 	[SKID.TF_DETOXIFY] = {
 		"TF_DETOXIFY";
 		SkillName = "Detoxify",
@@ -454,83 +486,40 @@ SKILL_INFO_LIST = {
 			{ SKID.TF_POISON,3 }
 		}
 	},
-
-	[SKID.ALL_RESURRECTION] = {
-		"ALL_RESURRECTION";
-		SkillName = "Resurrection",
-		MaxLv = 4,
-		_NeedSkillList = {
-			{ SKID.MG_SRECOVERY,4 },
-			{ SKID.PR_STRECOVERY,1 }
-		}
+	[SKID.TF_SPRINKLESAND] = {
+		"TF_SPRINKLESAND";
+		SkillName = "Sand Attack",
+		MaxLv = 1,
+		Type = "Quest"
 	},
-
-	[SKID.KN_SPEARMASTERY] = {
-		"KN_SPEARMASTERY";
-		SkillName = "Spear Mastery",
-		MaxLv = 10,
-
+	[SKID.TF_BACKSLIDING] = {
+		"TF_BACKSLIDING";
+		SkillName = "Back Slide",
+		MaxLv = 1,
+		Type = "Quest"
 	},
-
-	[SKID.KN_PIERCE] = {
-		"KN_PIERCE";
-		SkillName = "Pierce",
-		MaxLv = 10,
-		_NeedSkillList = {
-			{ SKID.KN_SPEARMASTERY,1 }
-		}
+	[SKID.TF_PICKSTONE] = {
+		"TF_PICKSTONE";
+		SkillName = "Find Stone",
+		MaxLv = 1,
+		Type = "Quest"
 	},
-
-	[SKID.KN_BRANDISHSPEAR] = {
-		"KN_BRANDISHSPEAR";
-		SkillName = "Brandish Spear",
-		MaxLv = 10,
-		_NeedSkillList = {
-			{ SKID.KN_RIDING,1 },
-			{ SKID.KN_SPEARSTAB,3 }
-		}
+	[SKID.TF_THROWSTONE] = {
+		"TF_THROWSTONE";
+		SkillName = "Stone Fling",
+		Type = "Quest",
+		MaxLv = 1,
 	},
-
-	[SKID.KN_SPEARSTAB] = {
-		"KN_SPEARSTAB";
-		SkillName = "Spear Stab",
-		MaxLv = 10,
-		SpAmount = { 9, 9, 9, 9, 9, 9, 9, 9, 9, 9 },
-		_NeedSkillList = {
-			{ SKID.KN_PIERCE,5 }
-		}
-	},
-
-	[SKID.KN_SPEARBOOMERANG] = {
-		"KN_SPEARBOOMERANG";
-		SkillName = "Spear Boomerang",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.KN_PIERCE,3 }
-		}
-	},
-
-	[SKID.KN_TWOHANDQUICKEN] = {
-		"KN_TWOHANDQUICKEN";
-		SkillName = "Two-Hand Quicken",
-		MaxLv = 10,
-		SpAmount = { 14, 18, 22, 26, 30, 34, 38, 42, 46, 50 },
-		_NeedSkillList = {
-			{ SKID.SM_TWOHAND,1 }
-		}
-	},
-
+	
+	-- Knight Skills --
 	[SKID.KN_AUTOCOUNTER] = {
 		"KN_AUTOCOUNTER";
-		SkillName = "Auto Counter",
+		SkillName = "Counter Attack",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.SM_TWOHAND,1 }
 		}
-
-
 	},
-
 	[SKID.KN_BOWLINGBASH] = {
 		"KN_BOWLINGBASH";
 		SkillName = "Bowling Bash",
@@ -543,40 +532,99 @@ SKILL_INFO_LIST = {
 			{ SKID.KN_TWOHANDQUICKEN,10 },
 			{ SKID.KN_AUTOCOUNTER,5 }
 		}
-
 	},
-
-	[SKID.KN_RIDING] = {
-		"KN_RIDING";
-		SkillName = "Riding",
-		MaxLv = 1,
+	[SKID.KN_BRANDISHSPEAR] = {
+		"KN_BRANDISHSPEAR";
+		SkillName = "Brandish Spear",
+		MaxLv = 10,
 		_NeedSkillList = {
-			{ SKID.SM_ENDURE,1 }
+			{ SKID.KN_RIDING,1 },
+			{ SKID.KN_SPEARSTAB,3 }
 		}
 	},
-
 	[SKID.KN_CAVALIERMASTERY] = {
 		"KN_CAVALIERMASTERY";
-		SkillName = "Cavalry Mastery",
+		SkillName = "Cavalier Mastery",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.KN_RIDING,1 }
 		}
 	},
-
+	[SKID.KN_PIERCE] = {
+		"KN_PIERCE";
+		SkillName = "Pierce",
+		MaxLv = 10,
+		_NeedSkillList = {
+			{ SKID.KN_SPEARMASTERY,1 }
+		}
+	},
+	[SKID.KN_SPEARBOOMERANG] = {
+		"KN_SPEARBOOMERANG";
+		SkillName = "Spear Boomerang",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.KN_PIERCE,3 }
+		}
+	},
+	[SKID.KN_SPEARMASTERY] = {
+		"KN_SPEARMASTERY";
+		SkillName = "Spear Mastery",
+		MaxLv = 10,
+	},
+	[SKID.KN_SPEARSTAB] = {
+		"KN_SPEARSTAB";
+		SkillName = "Spear Stab",
+		MaxLv = 10,
+		SpAmount = { 9, 9, 9, 9, 9, 9, 9, 9, 9, 9 },
+		_NeedSkillList = {
+			{ SKID.KN_PIERCE,5 }
+		}
+	},
+	[SKID.KN_TWOHANDQUICKEN] = {
+		"KN_TWOHANDQUICKEN";
+		SkillName = "Two-Hand Quicken",
+		MaxLv = 10,
+		SpAmount = { 14, 18, 22, 26, 30, 34, 38, 42, 46, 50 },
+		_NeedSkillList = {
+			{ SKID.SM_TWOHAND,1 }
+		}
+	},
+	[SKID.KN_RIDING] = {
+		"KN_RIDING";
+		SkillName = "Peco Peco Ride",
+		MaxLv = 1,
+		_NeedSkillList = {
+			{ SKID.SM_ENDURE,1 }
+		}
+	},
+	[SKID.KN_CHARGEATK] = {
+		"KN_CHARGEATK";
+		SkillName = "Charge Attack",
+		MaxLv = 1,
+		Type = "Quest",
+	},
+	[SKID.KN_ONEHAND] = {
+		"KN_ONEHAND";
+		SkillName = "One-Hand Quicken",
+		MaxLv = 1,
+		Type = "Soul",
+		_NeedSkillList = {
+			{ SKID.KN_TWOHANDQUICKEN,10 }
+		}
+	},
+	
+	-- Priest Skills --
 	[SKID.PR_MACEMASTERY] = {
 		"PR_MACEMASTERY";
 		SkillName = "Mace Mastery",
 		MaxLv = 10,
 	},
-
 	[SKID.PR_IMPOSITIO] = {
 		"PR_IMPOSITIO";
 		SkillName = "Impositio Manus",
 		MaxLv = 5,
 		SpAmount = { 13, 16, 19, 22, 25 }
 	},
-
 	[SKID.PR_SUFFRAGIUM] = {
 		"PR_SUFFRAGIUM";
 		SkillName = "Suffragium",
@@ -586,7 +634,6 @@ SKILL_INFO_LIST = {
 			{ SKID.PR_IMPOSITIO,2 }
 		}
 	},
-
 	[SKID.PR_ASPERSIO] = {
 		"PR_ASPERSIO";
 		SkillName = "Aspersio",
@@ -597,7 +644,6 @@ SKILL_INFO_LIST = {
 			{ SKID.PR_IMPOSITIO,3 }
 		}
 	},
-
 	[SKID.PR_BENEDICTIO] = {
 		"PR_BENEDICTIO";
 		SkillName = "B.S Sacramenti",
@@ -607,7 +653,6 @@ SKILL_INFO_LIST = {
 			{ SKID.PR_GLORIA,3 }
 		}
 	},
-
 	[SKID.PR_SANCTUARY] = {
 		"PR_SANCTUARY";
 		SkillName = "Sanctuary",
@@ -617,20 +662,17 @@ SKILL_INFO_LIST = {
 			{ SKID.AL_HEAL,1 }
 		}
 	},
-
+	[SKID.PR_STRECOVERY] = {
+		"PR_STRECOVERY";
+		SkillName = "Status Recovery",
+		MaxLv = 1,
+	},
 	[SKID.PR_SLOWPOISON] = {
 		"PR_SLOWPOISON";
 		SkillName = "Slow Poison",
 		MaxLv = 4,
 		SpAmount = { 6, 8, 10, 12 }
 	},
-
-	[SKID.PR_STRECOVERY] = {
-		"PR_STRECOVERY";
-		SkillName = "Recovery",
-		MaxLv = 1,
-	},
-
 	[SKID.PR_KYRIE] = {
 		"PR_KYRIE";
 		SkillName = "Kyrie Eleison",
@@ -640,13 +682,11 @@ SKILL_INFO_LIST = {
 			{ SKID.AL_ANGELUS,2 }
 		}
 	},
-
 	[SKID.PR_MAGNIFICAT] = {
 		"PR_MAGNIFICAT";
 		SkillName = "Magnificat",
 		MaxLv = 5,
 	},
-
 	[SKID.PR_GLORIA] = {
 		"PR_GLORIA";
 		SkillName = "Gloria",
@@ -656,7 +696,6 @@ SKILL_INFO_LIST = {
 			{ SKID.PR_MAGNIFICAT,3 }
 		}
 	},
-
 	[SKID.PR_LEXDIVINA] = {
 		"PR_LEXDIVINA";
 		SkillName = "Lex Divina",
@@ -665,7 +704,6 @@ SKILL_INFO_LIST = {
 			{ SKID.AL_RUWACH,1 }
 		}
 	},
-
 	[SKID.PR_TURNUNDEAD] = {
 		"PR_TURNUNDEAD";
 		SkillName = "Turn Undead",
@@ -675,7 +713,6 @@ SKILL_INFO_LIST = {
 			{ SKID.PR_LEXDIVINA,3 }
 		}
 	},
-
 	[SKID.PR_LEXAETERNA] = {
 		"PR_LEXAETERNA";
 		SkillName = "Lex Aeterna",
@@ -684,7 +721,6 @@ SKILL_INFO_LIST = {
 			{ SKID.PR_LEXDIVINA,5 }
 		}
 	},
-
 	[SKID.PR_MAGNUS] = {
 		"PR_MAGNUS";
 		SkillName = "Magnus Exorcismus",
@@ -696,7 +732,188 @@ SKILL_INFO_LIST = {
 			{ SKID.PR_TURNUNDEAD,3 }
 		}
 	},
+	[SKID.PR_REDEMPTIO] = {
+		"PR_REDEMPTIO";
+		SkillName = "Redemptio",
+		MaxLv = 1,
+		Type = "Quest",
+	},
+	[SKID.ALL_RESURRECTION] = {
+		"ALL_RESURRECTION";
+		SkillName = "Resurrection",
+		MaxLv = 4,
+		_NeedSkillList = {
+			{ SKID.MG_SRECOVERY,4 },
+			{ SKID.PR_STRECOVERY,1 }
+		}
+	},
 
+	-- Hunter Skills --
+	[SKID.HT_ANKLESNARE] = {
+		"HT_ANKLESNARE";
+		SkillName = "Ankle Snare",
+		MaxLv = 5,
+		SpAmount = { 12, 12, 12, 12, 12 },
+		_NeedSkillList = {
+			{ SKID.HT_SKIDTRAP,1 }
+		}
+	},
+	[SKID.HT_BEASTBANE] = {
+		"HT_BEASTBANE";
+		SkillName = "Beast Bane",
+		MaxLv = 10,
+	},
+	[SKID.HT_BLASTMINE] = {
+		"HT_BLASTMINE";
+		SkillName = "Blast Mine",
+		MaxLv = 5,
+		SpAmount = { 10, 10, 10, 10, 10 },
+		_NeedSkillList = {
+			{ SKID.HT_LANDMINE,1 },
+			{ SKID.HT_SANDMAN,1 },
+			{ SKID.HT_FREEZINGTRAP,1 }
+		}
+	},
+	[SKID.HT_BLITZBEAT] = {
+		"HT_BLITZBEAT";
+		SkillName = "Blitz Beat",
+		MaxLv = 5,
+		SpAmount = { 10, 13, 16, 19, 22, 25, 28, 31, 34, 37 },
+		_NeedSkillList = {
+			{ SKID.HT_FALCON,1 }
+		}
+	},
+		[SKID.HT_CLAYMORETRAP] = {
+		"HT_CLAYMORETRAP";
+		SkillName = "Claymore Trap",
+		MaxLv = 5,
+		SpAmount = { 15, 15, 15, 15, 15 },
+		_NeedSkillList = {
+			{ SKID.HT_SHOCKWAVE,1 },
+			{ SKID.HT_BLASTMINE,1 }
+		}
+	},
+	[SKID.HT_DETECTING] = {
+		"HT_DETECTING";
+		SkillName = "Detect",
+		MaxLv = 4,
+		_NeedSkillList = {
+			{ SKID.AC_CONCENTRATION,1 },
+			{ SKID.HT_FALCON,1 }
+		}
+	},
+	[SKID.HT_FALCON] = {
+		"HT_FALCON";
+		SkillName = "Falconry Mastery",
+		MaxLv = 1,
+		_NeedSkillList = {
+			{ SKID.HT_BEASTBANE,1 }
+		}
+	},
+	[SKID.HT_FLASHER] = {
+		"HT_FLASHER";
+		SkillName = "Flasher",
+		MaxLv = 5,
+		SpAmount = { 12, 12, 12, 12, 12 },
+		_NeedSkillList = {
+			{ SKID.HT_SKIDTRAP,1 }
+		}
+	},
+	[SKID.HT_FREEZINGTRAP] = {
+		"HT_FREEZINGTRAP";
+		SkillName = "Freezing Trap",
+		MaxLv = 5,
+		SpAmount = { 10, 10, 10, 10, 10 },
+		_NeedSkillList = {
+			{ SKID.HT_FLASHER,1 }
+		}
+	},
+	[SKID.HT_LANDMINE] = {
+		"HT_LANDMINE";
+		SkillName = "Land Mine",
+		MaxLv = 5,
+		SpAmount = { 10, 10, 10, 10, 10 }
+	},
+	[SKID.HT_REMOVETRAP] = {
+		"HT_REMOVETRAP";
+		SkillName = "Remove Trap",
+		MaxLv = 1,
+		_NeedSkillList = {
+			{ SKID.HT_LANDMINE,1 }
+		},
+		NeedSkillList = {
+			[JOBID.JT_ROGUE] = {
+				{ SKID.AC_DOUBLE,5 }
+			}
+		}
+	},
+	[SKID.HT_TALKIEBOX] = {
+		"HT_TALKIEBOX";
+		SkillName = "Talkie Box",
+		MaxLv = 1,
+		_NeedSkillList = {
+			{ SKID.HT_REMOVETRAP,1 },
+			{ SKID.HT_SHOCKWAVE,1 }
+		}
+	},
+	[SKID.HT_SANDMAN] = {
+		"HT_SANDMAN";
+		SkillName = "Sandman",
+		MaxLv = 5,
+		SpAmount = { 12, 12, 12, 12, 12 },
+		_NeedSkillList = {
+			{ SKID.HT_FLASHER,1 }
+		}
+	},
+	[SKID.HT_SHOCKWAVE] = {
+		"HT_SHOCKWAVE";
+		SkillName = "Shockwave Trap",
+		MaxLv = 5,
+		SpAmount = { 45, 45, 45, 45, 45 },
+		_NeedSkillList = {
+			{ SKID.HT_ANKLESNARE,1 }
+		}
+	},
+	[SKID.HT_SKIDTRAP] = {
+		"HT_SKIDTRAP";
+		SkillName = "Skid Trap",
+		MaxLv = 5,
+		SpAmount = { 10, 10, 10, 10, 10 }
+	},
+	[SKID.HT_SPRINGTRAP] = {
+		"HT_SPRINGTRAP";
+		SkillName = "Spring Trap",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.HT_FALCON }, --Hmmm no value
+			{ SKID.HT_REMOVETRAP,1 }
+		}
+	},
+	[SKID.HT_STEELCROW] = {
+		"HT_STEELCROW";
+		SkillName = "Steel Crow",
+		MaxLv = 10,
+		_NeedSkillList = {
+			{ SKID.HT_BLITZBEAT,5 }
+		}
+	},
+	[SKID.HT_PHANTASMIC] = {
+		"HT_PHANTASMIC";
+		SkillName = "Phantasmic Arrow",
+		MaxLv = 1,
+		Type = "Quest",
+	},
+	[SKID.HT_POWER] = {
+		"HT_POWER";
+		SkillName = "Beast Charge",
+		MaxLv = 1,
+		Type = "Soul",
+		_NeedSkillList = {
+			{ SKID.AC_DOUBLE,10 }
+		}
+	},
+
+	-- Wizard Skills --
 	[SKID.WZ_FIREPILLAR] = {
 		"WZ_FIREPILLAR";
 		SkillName = "Fire Pillar",
@@ -706,7 +923,6 @@ SKILL_INFO_LIST = {
 			{ SKID.MG_FIREWALL,1 }
 		}
 	},
-
 	[SKID.WZ_SIGHTRASHER] = {
 		"WZ_SIGHTRASHER";
 		SkillName = "Sightrasher",
@@ -717,13 +933,6 @@ SKILL_INFO_LIST = {
 			{ SKID.MG_LIGHTNINGBOLT,1 }
 		}
 	},
-
-	[SKID.WZ_FIREIVY] = {
-		"WZ_FIREIVY";
-		SkillName = "Fire Ivy",
-		SpAmount = { 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 }
-	},
-
 	[SKID.WZ_METEOR] = {
 		"WZ_METEOR";
 		SkillName = "Meteor Storm",
@@ -734,7 +943,6 @@ SKILL_INFO_LIST = {
 			{ SKID.WZ_SIGHTRASHER,2 }
 		}
 	},
-
 	[SKID.WZ_JUPITEL] = {
 		"WZ_JUPITEL";
 		SkillName = "Jupitel Thunder",
@@ -745,7 +953,6 @@ SKILL_INFO_LIST = {
 			{ SKID.MG_LIGHTNINGBOLT,1 }
 		}
 	},
-
 	[SKID.WZ_VERMILION] = {
 		"WZ_VERMILION";
 		SkillName = "Lord of Vermilion",
@@ -756,7 +963,6 @@ SKILL_INFO_LIST = {
 			{ SKID.WZ_JUPITEL,5 }
 		}
 	},
-
 	[SKID.WZ_WATERBALL] = {
 		"WZ_WATERBALL";
 		SkillName = "Water Ball",
@@ -767,7 +973,6 @@ SKILL_INFO_LIST = {
 			{ SKID.MG_LIGHTNINGBOLT,1 }
 		}
 	},
-
 	[SKID.WZ_ICEWALL] = {
 		"WZ_ICEWALL";
 		SkillName = "Ice Wall",
@@ -777,7 +982,6 @@ SKILL_INFO_LIST = {
 			{ SKID.MG_FROSTDIVER,1 }
 		}
 	},
-
 	[SKID.WZ_FROSTNOVA] = {
 		"WZ_FROSTNOVA";
 		SkillName = "Frost Nova",
@@ -786,7 +990,6 @@ SKILL_INFO_LIST = {
 			{ SKID.WZ_ICEWALL,1 }
 		}
 	},
-
 	[SKID.WZ_STORMGUST] = {
 		"WZ_STORMGUST";
 		SkillName = "Storm Gust",
@@ -797,7 +1000,6 @@ SKILL_INFO_LIST = {
 			{ SKID.WZ_JUPITEL,3 }
 		}
 	},
-
 	[SKID.WZ_EARTHSPIKE] = {
 		"WZ_EARTHSPIKE";
 		SkillName = "Earth Spike",
@@ -812,7 +1014,6 @@ SKILL_INFO_LIST = {
 			}
 		}
 	},
-
 	[SKID.WZ_HEAVENDRIVE] = {
 		"WZ_HEAVENDRIVE";
 		SkillName = "Heaven's Drive",
@@ -827,7 +1028,6 @@ SKILL_INFO_LIST = {
 			}
 		}
 	},
-
 	[SKID.WZ_QUAGMIRE] = {
 		"WZ_QUAGMIRE";
 		SkillName = "Quagmire",
@@ -836,365 +1036,24 @@ SKILL_INFO_LIST = {
 			{ SKID.WZ_HEAVENDRIVE,1 }
 		}
 	},
-
 	[SKID.WZ_ESTIMATION] = {
 		"WZ_ESTIMATION";
-		SkillName = "Monster Property",
+		SkillName = "Sense",
 		MaxLv = 1,
 	},
-
-	[SKID.BS_IRON] = {
-		"BS_IRON";
-		SkillName = "Iron Tempering",
-		MaxLv = 5,
+	-- Unused Skill --
+	[SKID.WZ_FIREIVY] = {
+		"WZ_FIREIVY";
+		SkillName = "Fire Ivy",
+		SpAmount = { 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 }
 	},
-
-	[SKID.BS_STEEL] = {
-		"BS_STEEL";
-		SkillName = "Steel Tempering",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.BS_IRON,1 },
-		}
-	},
-
-	[SKID.BS_ENCHANTEDSTONE] = {
-		"BS_ENCHANTEDSTONE";
-		SkillName = "Enchanted Stone Craft",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.BS_IRON,1 }
-		}
-	},
-
-	[SKID.BS_ORIDEOCON] = {
-		"BS_ORIDEOCON";
-		SkillName = "Research Oridecon",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.BS_ENCHANTEDSTONE,1 }
-		}
-	},
-
-	[SKID.BS_DAGGER] = {
-		"BS_DAGGER";
-		SkillName = "Smith Dagger",
-		MaxLv = 3,
-	},
-
-	[SKID.BS_SWORD] = {
-		"BS_SWORD";
-		SkillName = "Smith Sword",
-		MaxLv = 3,
-		_NeedSkillList = {
-			{ SKID.BS_DAGGER,1 }
-		}
-	},
-
-	[SKID.BS_TWOHANDSWORD] = {
-		"BS_TWOHANDSWORD";
-		SkillName = "Smith Two-Handed Sword",
-		MaxLv = 3,
-		_NeedSkillList = {
-			{ SKID.BS_SWORD,1 }
-		}
-	},
-
-	[SKID.BS_AXE] = {
-		"BS_AXE";
-		SkillName = "Smith Axe",
-		MaxLv = 3,
-		_NeedSkillList = {
-			{ SKID.BS_SWORD,2 }
-		}
-	},
-
-	[SKID.BS_MACE] = {
-		"BS_MACE";
-		SkillName = "Smith Mace",
-		MaxLv = 3,
-		_NeedSkillList = {
-			{ SKID.BS_KNUCKLE,1 }
-		}		
-	},
-
-	[SKID.BS_KNUCKLE] = {
-		"BS_KNUCKLE";
-		SkillName = "Smith Brass Knuckle",
-		MaxLv = 3,
-		_NeedSkillList = {
-			{ SKID.BS_DAGGER, 1 }
-		}
-	},
-
-	[SKID.BS_SPEAR] = {
-		"BS_SPEAR";
-		SkillName = "Smith Spear",
-		MaxLv = 3,
-		_NeedSkillList = {
-			{ SKID.BS_DAGGER,2 }
-		}
-	},
-
-	[SKID.BS_HILTBINDING] = {
-		"BS_HILTBINDING";
-		SkillName = "Hilt Binding",
-		MaxLv = 1,
-	},
-
-	[SKID.BS_FINDINGORE] = {
-		"BS_FINDINGORE";
-		SkillName = "Finding Ore",
-		MaxLv = 1,
-		_NeedSkillList = {
-			{ SKID.BS_HILTBINDING,1 },
-			{ SKID.BS_STEEL,1 }
-		}
-
-	},
-
-	[SKID.BS_WEAPONRESEARCH] = {
-		"BS_WEAPONRESEARCH";
-		SkillName = "Weaponry Research",
-		MaxLv = 10,
-		_NeedSkillList = {
-			{ SKID.BS_HILTBINDING,1 }
-		}
-	},
-
-	[SKID.BS_REPAIRWEAPON] = {
-		"BS_REPAIRWEAPON";
-		SkillName = "Repair Weapon",
-		MaxLv = 1,
-		_NeedSkillList = {
-			{ SKID.BS_WEAPONRESEARCH,1 }
-		}
-	},
-
-	[SKID.BS_SKINTEMPER] = {
-		"BS_SKINTEMPER";
-		SkillName = "Skin Tempering",
-		MaxLv = 5,
-	},
-
-	[SKID.BS_HAMMERFALL] = {
-		"BS_HAMMERFALL";
-		SkillName = "Hammer Fall",
-		MaxLv = 5,
-	},
-
-	[SKID.BS_ADRENALINE] = {
-		"BS_ADRENALINE";
-		SkillName = "Adrenaline Rush",
-		MaxLv = 5,
-		SpAmount = { 20, 23, 26, 29, 32 },
-		_NeedSkillList = {
-			{ SKID.BS_HAMMERFALL,2 }
-		}
-	},
-
-	[SKID.BS_WEAPONPERFECT] = {
-		"BS_WEAPONPERFECT";
-		SkillName = "Weapon Perfection",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.BS_WEAPONRESEARCH,2 },
-			{ SKID.BS_ADRENALINE,2 }
-		}
-	},
-
-	[SKID.BS_OVERTHRUST] = {
-		"BS_OVERTHRUST";
-		SkillName = "Over Thrust",
-		MaxLv = 5,
-		SpAmount = { 18, 16, 14, 12, 10 },
-		_NeedSkillList = {
-			{ SKID.BS_ADRENALINE,3 }
-		}
-	},
-
-	[SKID.BS_MAXIMIZE] = {
-		"BS_MAXIMIZE";
-		SkillName = "Maximize Power",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.BS_WEAPONPERFECT,3 },
-			{ SKID.BS_OVERTHRUST,2 }
-		}
-	},
-
-	[SKID.HT_SKIDTRAP] = {
-		"HT_SKIDTRAP";
-		SkillName = "Skid Trap",
-		MaxLv = 5,
-		SpAmount = { 10, 10, 10, 10, 10 }
-	},
-
-	[SKID.HT_LANDMINE] = {
-		"HT_LANDMINE";
-		SkillName = "Land Mine",
-		MaxLv = 5,
-		SpAmount = { 10, 10, 10, 10, 10 }
-	},
-
-	[SKID.HT_ANKLESNARE] = {
-		"HT_ANKLESNARE";
-		SkillName = "Ankle Snare",
-		MaxLv = 5,
-		SpAmount = { 12, 12, 12, 12, 12 },
-		_NeedSkillList = {
-			{ SKID.HT_SKIDTRAP,1 }
-		}
-	},
-
-	[SKID.HT_SHOCKWAVE] = {
-		"HT_SHOCKWAVE";
-		SkillName = "Shockwave Trap",
-		MaxLv = 5,
-		SpAmount = { 45, 45, 45, 45, 45 },
-		_NeedSkillList = {
-			{ SKID.HT_ANKLESNARE,1 }
-		}
-	},
-
-	[SKID.HT_SANDMAN] = {
-		"HT_SANDMAN";
-		SkillName = "Sandman",
-		MaxLv = 5,
-		SpAmount = { 12, 12, 12, 12, 12 },
-		_NeedSkillList = {
-			{ SKID.HT_FLASHER,1 }
-		}
-
-	},
-
-	[SKID.HT_FLASHER] = {
-		"HT_FLASHER";
-		SkillName = "Flasher",
-		MaxLv = 5,
-		SpAmount = { 12, 12, 12, 12, 12 },
-		_NeedSkillList = {
-			{ SKID.HT_SKIDTRAP,1 }
-		}
-	},
-
-	[SKID.HT_FREEZINGTRAP] = {
-		"HT_FREEZINGTRAP";
-		SkillName = "Freezing Trap",
-		MaxLv = 5,
-		SpAmount = { 10, 10, 10, 10, 10 },
-		_NeedSkillList = {
-			{ SKID.HT_FLASHER,1 }
-		}
-	},
-
-	[SKID.HT_BLASTMINE] = {
-		"HT_BLASTMINE";
-		SkillName = "Blast Mine",
-		MaxLv = 5,
-		SpAmount = { 10, 10, 10, 10, 10 },
-		_NeedSkillList = {
-			{ SKID.HT_LANDMINE,1 },
-			{ SKID.HT_SANDMAN,1 },
-			{ SKID.HT_FREEZINGTRAP,1 }
-		}
-	},
-
-	[SKID.HT_CLAYMORETRAP] = {
-		"HT_CLAYMORETRAP";
-		SkillName = "Claymore Trap",
-		MaxLv = 5,
-		SpAmount = { 15, 15, 15, 15, 15 },
-		_NeedSkillList = {
-			{ SKID.HT_SHOCKWAVE,1 },
-			{ SKID.HT_BLASTMINE,1 }
-		}
-	},
-
-	[SKID.HT_REMOVETRAP] = {
-		"HT_REMOVETRAP";
-		SkillName = "Remove Trap",
-		MaxLv = 1,
-		_NeedSkillList = {
-			{ SKID.HT_LANDMINE,1 }
-		},
-		NeedSkillList = {
-			[JOBID.JT_ROGUE] = {
-				{ SKID.AC_DOUBLE,5 }
-			}
-		}
-	},
-
-	[SKID.HT_TALKIEBOX] = {
-		"HT_TALKIEBOX";
-		SkillName = "Talkie Box",
-		MaxLv = 1,
-		_NeedSkillList = {
-			{ SKID.HT_REMOVETRAP,1 },
-			{ SKID.HT_SHOCKWAVE,1 }
-		}
-	},
-
-	[SKID.HT_BEASTBANE] = {
-		"HT_BEASTBANE";
-		SkillName = "Beast Bane",
-		MaxLv = 10,
-	},
-
-	[SKID.HT_FALCON] = {
-		"HT_FALCON";
-		SkillName = "Falconry Mastery",
-		MaxLv = 1,
-		_NeedSkillList = {
-			{ SKID.HT_BEASTBANE,1 }
-		}
-	},
-
-	[SKID.HT_STEELCROW] = {
-		"HT_STEELCROW";
-		SkillName = "Steel Crow",
-		MaxLv = 10,
-		_NeedSkillList = {
-			{ SKID.HT_BLITZBEAT,5 }
-		}
-	},
-
-	[SKID.HT_BLITZBEAT] = {
-		"HT_BLITZBEAT";
-		SkillName = "Blitz Beat",
-		MaxLv = 5,
-		SpAmount = { 10, 13, 16, 19, 22, 25, 28, 31, 34, 37 },
-		_NeedSkillList = {
-			{ SKID.HT_FALCON,1 }
-		}
-	},
-
-	[SKID.HT_DETECTING] = {
-		"HT_DETECTING";
-		SkillName = "Detecting",
-		MaxLv = 4,
-		_NeedSkillList = {
-			{ SKID.AC_CONCENTRATION,1 },
-			{ SKID.HT_FALCON,1 }
-		}
-	},
-
-	[SKID.HT_SPRINGTRAP] = {
-		"HT_SPRINGTRAP";
-		SkillName = "Spring Trap",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.HT_FALCON }, --Hmmm no value
-			{ SKID.HT_REMOVETRAP,1 }
-		}
-	},
-
+	
+	-- Assassin Skills --
 	[SKID.AS_RIGHT] = {
 		"AS_RIGHT";
 		SkillName = "Right-Hand Mastery",
 		MaxLv = 5,
 	},
-
 	[SKID.AS_LEFT] = {
 		"AS_LEFT";
 		SkillName = "Left-Hand Mastery",
@@ -1203,13 +1062,11 @@ SKILL_INFO_LIST = {
 			{ SKID.AS_RIGHT,2 }
 		}
 	},
-
 	[SKID.AS_KATAR] = {
 		"AS_KATAR";
 		SkillName = "Katar Mastery",
 		MaxLv = 10,
 	},
-
 	[SKID.AS_CLOAKING] = {
 		"AS_CLOAKING";
 		SkillName = "Cloaking",
@@ -1218,7 +1075,6 @@ SKILL_INFO_LIST = {
 			{ SKID.TF_HIDING,2 }
 		}
 	},
-
 	[SKID.AS_SONICBLOW] = {
 		"AS_SONICBLOW";
 		SkillName = "Sonic Blow",
@@ -1228,7 +1084,6 @@ SKILL_INFO_LIST = {
 			{ SKID.AS_KATAR,4 }
 		}
 	},
-
 	[SKID.AS_GRIMTOOTH] = {
 		"AS_GRIMTOOTH";
 		SkillName = "Grimtooth",
@@ -1238,7 +1093,6 @@ SKILL_INFO_LIST = {
 			{ SKID.AS_SONICBLOW,5 }
 		}
 	},
-
 	[SKID.AS_ENCHANTPOISON] = {
 		"AS_ENCHANTPOISON";
 		SkillName = "Enchant Poison",
@@ -1247,7 +1101,6 @@ SKILL_INFO_LIST = {
 			{ SKID.TF_POISON,1 }
 		}
 	},
-
 	[SKID.AS_POISONREACT] = {
 		"AS_POISONREACT";
 		SkillName = "Poison React",
@@ -1256,7 +1109,6 @@ SKILL_INFO_LIST = {
 			{ SKID.AS_ENCHANTPOISON,3 }
 		}
 	},
-
 	[SKID.AS_VENOMDUST] = {
 		"AS_VENOMDUST";
 		SkillName = "Venom Dust",
@@ -1265,7 +1117,6 @@ SKILL_INFO_LIST = {
 			{ SKID.AS_ENCHANTPOISON,5 }
 		}
 	},
-
 	[SKID.AS_SPLASHER] = {
 		"AS_SPLASHER";
 		SkillName = "Venom Splasher",
@@ -1276,137 +1127,217 @@ SKILL_INFO_LIST = {
 			{ SKID.AS_POISONREACT,5 }
 		}
 	},
-
-	[SKID.NV_FIRSTAID] = {
-		"NV_FIRSTAID";
-		SkillName = "First Aid",
-		MaxLv = 1,
-		Type = "Quest"
-	},
-
-	[SKID.NV_TRICKDEAD] = {
-		"NV_TRICKDEAD";
-		SkillName = "Trick Dead",	
-		MaxLv = 1,
-		Type = "Quest"
-	},
-
-	[SKID.SM_MOVINGRECOVERY] = {
-		"SM_MOVINGRECOVERY";
-		SkillName = "Moving HP Recovery",
-		MaxLv = 1,
-		Type = "Quest"
-	},
-
-	[SKID.SM_FATALBLOW] = {
-		"SM_FATALBLOW";
-		SkillName = "Fatal Blow",
-		MaxLv = 1,
-		Type = "Quest"
-	},
-
-	[SKID.SM_AUTOBERSERK] = {
-		"SM_AUTOBERSERK";
-		SkillName = "Auto Berserk",
-		MaxLv = 1,
-		Type = "Quest"
-	},
-
-	[SKID.AC_MAKINGARROW] = {
-		"AC_MAKINGARROW";
-		SkillName = "Making Arrow",
-		MaxLv = 1,
-		Type = "Quest"
-	},
-
-	[SKID.AC_CHARGEARROW] = {
-		"AC_CHARGEARROW";
-		SkillName = "Charge Arrow",
-		MaxLv = 1,
-		Type = "Quest"
-	},
-
-	[SKID.TF_SPRINKLESAND] = {
-		"TF_SPRINKLESAND";
-		SkillName = "Sprinkle Sand",
-		MaxLv = 1,
-		Type = "Quest"
-	},
-
-	[SKID.TF_BACKSLIDING] = {
-		"TF_BACKSLIDING";
-		SkillName = "Back Sliding",
-		MaxLv = 1,
-		Type = "Quest"
-	},
-
-	[SKID.TF_PICKSTONE] = {
-		"TF_PICKSTONE";
-		SkillName = "Pick Stone",
-		MaxLv = 1,
-		Type = "Quest"
-	},
-
-	[SKID.TF_THROWSTONE] = {
-		"TF_THROWSTONE";
-		SkillName = "Throw Stone",
-		Type = "Quest",
-		MaxLv = 1,
-	},
-
-	[SKID.MC_CARTREVOLUTION] = {
-		"MC_CARTREVOLUTION";
-		SkillName = "Cart Revolution",
+	[SKID.AS_SONICACCEL] = {
+		"AS_SONICACCEL";
+		SkillName = "Sonic Acceleration",
 		MaxLv = 1,
 		Type = "Quest",
 	},
-
-	[SKID.MC_CHANGECART] = {
-		"MC_CHANGECART";
-		SkillName = "Change Cart",
+	[SKID.AS_VENOMKNIFE] = {
+		"AS_VENOMKNIFE";
+		SkillName = "Venom Knife",
+		MaxLv = 1,
+		Type = "Quest",
+	},	
+	
+	-- Blacksmith Skills --
+	[SKID.BS_IRON] = {
+		"BS_IRON";
+		SkillName = "Iron Tempering",
+		MaxLv = 5,
+	},
+	[SKID.BS_STEEL] = {
+		"BS_STEEL";
+		SkillName = "Steel Tempering",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.BS_IRON,1 },
+		}
+	},
+	[SKID.BS_ENCHANTEDSTONE] = {
+		"BS_ENCHANTEDSTONE";
+		SkillName = "Enchanted Stone Craft",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.BS_IRON,1 }
+		}
+	},
+	[SKID.BS_ORIDEOCON] = {
+		"BS_ORIDEOCON";
+		SkillName = "Oridecon Research",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.BS_ENCHANTEDSTONE,1 }
+		}
+	},
+	[SKID.BS_DAGGER] = {
+		"BS_DAGGER";
+		SkillName = "Smith Dagger",
+		MaxLv = 3,
+	},
+	[SKID.BS_SWORD] = {
+		"BS_SWORD";
+		SkillName = "Smith Sword",
+		MaxLv = 3,
+		_NeedSkillList = {
+			{ SKID.BS_DAGGER,1 }
+		}
+	},
+	[SKID.BS_TWOHANDSWORD] = {
+		"BS_TWOHANDSWORD";
+		SkillName = "Smith Two-Handed Sword",
+		MaxLv = 3,
+		_NeedSkillList = {
+			{ SKID.BS_SWORD,1 }
+		}
+	},
+	[SKID.BS_AXE] = {
+		"BS_AXE";
+		SkillName = "Smith Axe",
+		MaxLv = 3,
+		_NeedSkillList = {
+			{ SKID.BS_SWORD,2 }
+		}
+	},
+	[SKID.BS_MACE] = {
+		"BS_MACE";
+		SkillName = "Smith Mace",
+		MaxLv = 3,
+		_NeedSkillList = {
+			{ SKID.BS_KNUCKLE,1 }
+		}		
+	},
+	[SKID.BS_KNUCKLE] = {
+		"BS_KNUCKLE";
+		SkillName = "Smith Knucklebrace",
+		MaxLv = 3,
+		_NeedSkillList = {
+			{ SKID.BS_DAGGER, 1 }
+		}
+	},
+	[SKID.BS_SPEAR] = {
+		"BS_SPEAR";
+		SkillName = "Smith Spear",
+		MaxLv = 3,
+		_NeedSkillList = {
+			{ SKID.BS_DAGGER,2 }
+		}
+	},
+	[SKID.BS_HILTBINDING] = {
+		"BS_HILTBINDING";
+		SkillName = "Hilt Binding",
+		MaxLv = 1,
+	},
+	[SKID.BS_FINDINGORE] = {
+		"BS_FINDINGORE";
+		SkillName = "Ore Discovery",
+		MaxLv = 1,
+		_NeedSkillList = {
+			{ SKID.BS_HILTBINDING,1 },
+			{ SKID.BS_STEEL,1 }
+		}
+	},
+	[SKID.BS_WEAPONRESEARCH] = {
+		"BS_WEAPONRESEARCH";
+		SkillName = "Weaponry Research",
+		MaxLv = 10,
+		_NeedSkillList = {
+			{ SKID.BS_HILTBINDING,1 }
+		}
+	},
+	[SKID.BS_REPAIRWEAPON] = {
+		"BS_REPAIRWEAPON";
+		SkillName = "Weapon Repair",
+		MaxLv = 1,
+		_NeedSkillList = {
+			{ SKID.BS_WEAPONRESEARCH,1 }
+		}
+	},
+	[SKID.BS_SKINTEMPER] = {
+		"BS_SKINTEMPER";
+		SkillName = "Skin Tempering",
+		MaxLv = 5,
+	},
+	[SKID.BS_HAMMERFALL] = {
+		"BS_HAMMERFALL";
+		SkillName = "Hammer Fall",
+		MaxLv = 5,
+	},
+	[SKID.BS_ADRENALINE] = {
+		"BS_ADRENALINE";
+		SkillName = "Adrenaline Rush",
+		MaxLv = 5,
+		SpAmount = { 20, 23, 26, 29, 32 },
+		_NeedSkillList = {
+			{ SKID.BS_HAMMERFALL,2 }
+		}
+	},
+	[SKID.BS_WEAPONPERFECT] = {
+		"BS_WEAPONPERFECT";
+		SkillName = "Weapon Perfection",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.BS_WEAPONRESEARCH,2 },
+			{ SKID.BS_ADRENALINE,2 }
+		}
+	},
+	[SKID.BS_OVERTHRUST] = {
+		"BS_OVERTHRUST";
+		SkillName = "Power-Thrust",
+		MaxLv = 5,
+		SpAmount = { 18, 16, 14, 12, 10 },
+		_NeedSkillList = {
+			{ SKID.BS_ADRENALINE,3 }
+		}
+	},
+	[SKID.BS_MAXIMIZE] = {
+		"BS_MAXIMIZE";
+		SkillName = "Power Maximize",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.BS_WEAPONPERFECT,3 },
+			{ SKID.BS_OVERTHRUST,2 }
+		}
+	},
+	[SKID.BS_UNFAIRLYTRICK] = {
+		"BS_UNFAIRLYTRICK";
+		SkillName = "Dubios Salesmanship",
 		MaxLv = 1,
 		Type = "Quest",
 	},
-
-	[SKID.MC_LOUD] = {
-		"MC_LOUD";
-		SkillName = "Loud Exclamation",
+	[SKID.BS_GREED] = {
+		"BS_GREED";
+		SkillName = "Greed",
 		MaxLv = 1,
 		Type = "Quest",
-	},
-
-	[SKID.AL_HOLYLIGHT] = {
-		"AL_HOLYLIGHT";
-		SkillName = "Holy Light",
+	},	
+	[SKID.BS_ADRENALINE2] = {
+		"BS_ADRENALINE2";
+		SkillName = "Advanced Adrenaline Rush",
 		MaxLv = 1,
-		Type = "Quest",
+		Type = "Soul",
+		_NeedSkillList = {
+			{ SKID.BS_ADRENALINE,5 }
+		}
 	},
-
-	[SKID.MG_ENERGYCOAT] = {
-		"MG_ENERGYCOAT";
-		SkillName = "Energy Coat",
-		MaxLv = 1,
-		Type = "Quest",
-	},
-
+	
+	-- Rogue Skills --
 	[SKID.RG_SNATCHER] = {
 		"RG_SNATCHER";
-		SkillName = "Snatcher",
+		SkillName = "Gank",
 		MaxLv = 10,
 		_NeedSkillList = {
 			{ SKID.TF_STEAL,1 }
 		}
 	},
-
 	[SKID.RG_STEALCOIN] = {
 		"RG_STEALCOIN";
-		SkillName = "Steal Coin",
+		SkillName = "Mug",
 		MaxLv = 10,
 		_NeedSkillList = {
 			{ SKID.RG_SNATCHER,4 }
 		}
 	},
-
 	[SKID.RG_BACKSTAP] = {
 		"RG_BACKSTAP";
 		SkillName = "Back Stab",
@@ -1415,163 +1346,151 @@ SKILL_INFO_LIST = {
 			{ SKID.RG_STEALCOIN,4 }
 		}
 	},
-
 	[SKID.RG_TUNNELDRIVE] = {
 		"RG_TUNNELDRIVE";
-		SkillName = "Tunnel Drive",
+		SkillName = "Stalk",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.TF_HIDING,1 }
 		}
 	},
-
 	[SKID.RG_RAID] = {
 		"RG_RAID";
-		SkillName = "Raid",
+		SkillName = "Slightless Mind",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.RG_TUNNELDRIVE,2 },
 			{ SKID.RG_BACKSTAP,2 }
 		}
-
 	},
-
 	[SKID.RG_STRIPWEAPON] = {
 		"RG_STRIPWEAPON";
-		SkillName = "Strip Weapon",
+		SkillName = "Divest Weapon",
 		MaxLv = 5,
 		SpAmount = { 17, 19, 21, 23, 25 },
 		_NeedSkillList = {
 			{ SKID.RG_STRIPARMOR,5 }
 		}
 	},
-
 	[SKID.RG_STRIPSHIELD] = {
 		"RG_STRIPSHIELD";
-		SkillName = "Strip Shield",
+		SkillName = "Divest Shield",
 		MaxLv = 5,
 		SpAmount = { 12, 14, 16, 18, 20 },
 		_NeedSkillList = {
 			{ SKID.RG_STRIPHELM,5 }
 		}
 	},
-
 	[SKID.RG_STRIPARMOR] = {
 		"RG_STRIPARMOR";
-		SkillName = "Strip Armor",
+		SkillName = "Divest Armor",
 		MaxLv = 5,
 		SpAmount = { 17, 19, 21, 23, 25 },
 		_NeedSkillList = {
 			{ SKID.RG_STRIPSHIELD,5 }
 		}
 	},
-
 	[SKID.RG_STRIPHELM] = {
 		"RG_STRIPHELM";
-		SkillName = "Strip Helm",
+		SkillName = "Divest Helm",
 		MaxLv = 5,
 		SpAmount = { 12, 14, 16, 18, 20 },
 		_NeedSkillList = {
 			{ SKID.RG_STEALCOIN,2 }
 		}
 	},
-
 	[SKID.RG_INTIMIDATE] = {
 		"RG_INTIMIDATE";
-		SkillName = "Intimidate",
+		SkillName = "Snatch",
 		MaxLv = 5,
 		SpAmount = { 13, 16, 19, 22, 25 },
 		_NeedSkillList = {
 			{ SKID.RG_BACKSTAP,4 },
 			{ SKID.RG_RAID,5 }
 		}
-
 	},
-
 	[SKID.RG_GRAFFITI] = {
 		"RG_GRAFFITI";
-		SkillName = "Graffiti",
+		SkillName = "Scribble",
 		MaxLv = 1,
 		_NeedSkillList = {
 			{ SKID.RG_FLAGGRAFFITI,5 }
 		}
 	},
-
 	[SKID.RG_FLAGGRAFFITI] = {
 		"RG_FLAGGRAFFITI";
-		SkillName = "Flag Graffiti",
+		SkillName = "Piece",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.RG_CLEANER,1 }
 		}
 	},
-
 	[SKID.RG_CLEANER] = {
 		"RG_CLEANER";
-		SkillName = "Cleaner",
+		SkillName = "Remover",
 		MaxLv = 1,
 		_NeedSkillList = {
 			{ SKID.RG_GANGSTER,1 }
 		}
 	},
-
 	[SKID.RG_GANGSTER] = {
 		"RG_GANGSTER";
-		SkillName = "Gangster's Paradise",
+		SkillName = "Slyness",
 		MaxLv = 1,
 		_NeedSkillList = {
 			{ SKID.RG_STRIPSHIELD,3 }
 		}
 	},
-
 	[SKID.RG_COMPULSION] = {
 		"RG_COMPULSION";
-		SkillName = "Compulsion Discount",
+		SkillName = "Haggle",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.RG_GANGSTER,1 }
 		}
 	},
-
 	[SKID.RG_PLAGIARISM] = {
 		"RG_PLAGIARISM";
-		SkillName = "Plagiarism",
+		SkillName = "Intimidate",
 		MaxLv = 10,
 		_NeedSkillList = {
 			{ SKID.RG_INTIMIDATE,5 },
 		}
 	},
-
+	[SKID.RG_CLOSECONFINE] = {
+		"RG_CLOSECONFINE";
+		SkillName = "Close Confine",
+		MaxLv = 1,
+		Type = "Quest",
+	},
+	
+	-- Alchemist Skills --
 	[SKID.AM_AXEMASTERY] = {
 		"AM_AXEMASTERY";
 		SkillName = "Axe Mastery",
 		MaxLv = 10,		
 	},
-
 	[SKID.AM_LEARNINGPOTION] = {
 		"AM_LEARNINGPOTION";
-		SkillName = "Learning Potion",
+		SkillName = "Potion Research",
 		MaxLv  = 10,
 	},
-
 	[SKID.AM_PHARMACY] = {
 		"AM_PHARMACY";
-		SkillName = "Pharmacy",
+		SkillName = "Prepare Potion",
 		MaxLv = 10,
 		_NeedSkillList = {
 			{ SKID.AM_LEARNINGPOTION,5 }
 		}
 	},
-
 	[SKID.AM_DEMONSTRATION] = {
 		"AM_DEMONSTRATION";
-		SkillName = "Demonstration",
+		SkillName = "Bomb",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.AM_PHARMACY,4 }
 		}
 	},
-
 	[SKID.AM_ACIDTERROR] = {
 		"AM_ACIDTERROR";
 		SkillName = "Acid Terror",
@@ -1580,17 +1499,15 @@ SKILL_INFO_LIST = {
 			{ SKID.AM_PHARMACY,5 }
 		}
 	},
-
 	[SKID.AM_POTIONPITCHER] = {
 		"AM_POTIONPITCHER";
-		SkillName = "Potion Pitcher",
+		SkillName = "Aid Potion",
 		MaxLv = 5,
 		SpAmount = { 1, 1, 1, 1, 1 },
 		_NeedSkillList = {
 			{ SKID.AM_PHARMACY,3 }
 		}		
 	},
-
 	[SKID.AM_CANNIBALIZE] = {
 		"AM_CANNIBALIZE";
 		SkillName = "Bio Cannibalize",
@@ -1600,146 +1517,100 @@ SKILL_INFO_LIST = {
 			{ SKID.AM_PHARMACY,6 }
 		}		
 	},
-
 	[SKID.AM_SPHEREMINE] = {
 		"AM_SPHEREMINE";
-		SkillName = "Sphere Mine",
+		SkillName = "Summon Marine Sphere",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.AM_PHARMACY,2 }
 		}
 	},
-
 	[SKID.AM_CP_WEAPON] = {
 		"AM_CP_WEAPON";
-		SkillName = "Chemical Protection Weapon",
+		SkillName = "Alchemical Weapon",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.AM_CP_ARMOR,3 }
 		}
 	},
-
 	[SKID.AM_CP_SHIELD] = {
 		"AM_CP_SHIELD";
-		SkillName = "Chemical Protection Shield",
+		SkillName = "Synthesized Shield",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.AM_CP_HELM,3 }
 		}
 	},
-
 	[SKID.AM_CP_ARMOR] = {
 		"AM_CP_ARMOR";
-		SkillName = "Chemical Protection Armor",
+		SkillName = "Synthetic Armor",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.AM_CP_SHIELD,3 }
 		}
 	},
-
 	[SKID.AM_CP_HELM] = {
 		"AM_CP_HELM";
-		SkillName = "Chemical Protection Helm",
+		SkillName = "Biochemical Helm",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.AM_PHARMACY,2 }
 		}
 	},
-
-	[SKID.AM_BIOETHICS] = {
-		"AM_BIOETHICS";
-		SkillName = "Bioethics",
+	[SKID.AM_BERSERKPITCHER] = {
+		"AM_BERSERKPITCHER";
+		SkillName = "Aid Berserk Pitcher",
 		MaxLv = 1,
-		Type = "Quest",
+		Type = "Soul",
 	},
-
-	[SKID.AM_BIOTECHNOLOGY] = {
-		"AM_BIOTECHNOLOGY";
-		SkillName = "Biotechnology",
-		--Wah Where is the MaxLevel?
-	},
-
-	[SKID.AM_CREATECREATURE] = {
-		"AM_CREATECREATURE";
-		SkillName = "Create Creature",
-		--Wah Where is the MaxLevel?
-	},
-
-	[SKID.AM_CULTIVATION] = {
-		"AM_CULTIVATION";
-		SkillName = "Cultivation",
-		--Wah Where is the MaxLevel?
-	},
-
-	[SKID.AM_FLAMECONTROL] = {
-		"AM_FLAMECONTROL";
-		SkillName = "Flame Control",
-		--Wah Where is the MaxLevel?
-	},
-
-	[SKID.AM_CALLHOMUN] = {
-		"AM_CALLHOMUN";
-		SkillName = "Call Homunculus",
+	[SKID.AM_TWILIGHT1] = {
+		"AM_TWILIGHT1";
+		SkillName = "Spiritual Potion Creation",
 		MaxLv = 1,
+		Type = "Soul",
 		_NeedSkillList = {
-			{ SKID.AM_REST,1 }
+			{ SKID.AM_PHARMACY,10 }
+		}
+	},
+	[SKID.AM_TWILIGHT2] = {
+		"AM_TWILIGHT2";
+		SkillName = "Spiritual Potion Creation",
+		MaxLv = 1,
+		Type = "Soul",
+		_NeedSkillList = {
+			{ SKID.AM_PHARMACY,10 }
+		}
+	},
+	[SKID.AM_TWILIGHT3] = {
+		"AM_TWILIGHT3";
+		SkillName = "Spiritual Potion Creation",
+		MaxLv = 1,
+		Type = "Soul",
+		_NeedSkillList = {
+			{ SKID.AM_PHARMACY,10 }
 		}
 	},
 
-	[SKID.AM_REST] = {
-		"AM_REST";
-		SkillName = "Rest",
-		MaxLv = 1,
-		_NeedSkillList = {
-			{ SKID.AM_BIOETHICS,1 }
-		}
-	},
-
-	[SKID.AM_DRILLMASTER] = {
-		"AM_DRILLMASTER";
-		SkillName = "Drillmaster",
-		--Wah Where is the MaxLevel?
-	},
-
-	[SKID.AM_HEALHOMUN] = {
-		"AM_HEALHOMUN";
-		SkillName = "Heal Homunculus",
-		--Wah Where is the MaxLevel?
-		SpAmount = { 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 }
-	},
-
-	[SKID.AM_RESURRECTHOMUN] = {
-		"AM_RESURRECTHOMUN";
-		SkillName = "Resurrect Homunculus",
-		MaxLv = 5,
-		SpAmount = { 74, 68, 62, 56, 50 },
-		_NeedSkillList = {
-			{ SKID.AM_CALLHOMUN,1 }
-		}
-	},
-
+	-- Crusader Skills --
 	[SKID.CR_TRUST] = {
 		"CR_TRUST";
 		SkillName = "Faith",
 		MaxLv = 10,
 	},
-
 	[SKID.CR_AUTOGUARD] = {
 		"CR_AUTOGUARD";
-		SkillName = "Auto Guard",
+		SkillName = "Guard",
 		MaxLv = 10,
 		SpAmount = { 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 }
 	},
-
 	[SKID.CR_SHIELDCHARGE] = {
 		"CR_SHIELDCHARGE";
-		SkillName = "Shield Charge",
+		SkillName = "Smite",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.CR_AUTOGUARD,5 }
 		}
 	},
-
 	[SKID.CR_SHIELDBOOMERANG] = {
 		"CR_SHIELDBOOMERANG";
 		SkillName = "Shield Boomerang",
@@ -1748,17 +1619,15 @@ SKILL_INFO_LIST = {
 			{ SKID.CR_SHIELDCHARGE,3 }
 		}
 	},
-
 	[SKID.CR_REFLECTSHIELD] = {
 		"CR_REFLECTSHIELD";
-		SkillName = "Reflect Shield",
+		SkillName = "Shield Reflect",
 		MaxLv = 10,
 		SpAmount = { 35, 40, 45, 50, 55, 60, 65, 70, 75, 80 },
 		_NeedSkillList = {
 			{ SKID.CR_SHIELDBOOMERANG,3 }
 		}
 	},
-
 	[SKID.CR_HOLYCROSS] = {
 		"CR_HOLYCROSS";
 		SkillName = "Holy Cross",
@@ -1768,7 +1637,6 @@ SKILL_INFO_LIST = {
 			{ SKID.CR_TRUST,7 }
 		}
 	},
-
 	[SKID.CR_GRANDCROSS] = {
 		"CR_GRANDCROSS";
 		SkillName = "Grand Cross",
@@ -1779,36 +1647,32 @@ SKILL_INFO_LIST = {
 			{ SKID.CR_HOLYCROSS,6 }
 		}
 	},
-
 	[SKID.CR_DEVOTION] = {
 		"CR_DEVOTION";
-		SkillName = "Devotion",
+		SkillName = "Sacrifice",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.CR_GRANDCROSS,4 },
 			{ SKID.CR_REFLECTSHIELD,5 }
 		}
 	},
-
 	[SKID.CR_PROVIDENCE] = {
 		"CR_PROVIDENCE";
-		SkillName = "Providence",
+		SkillName = "Resistant Souls",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.AL_DP,5 },
 			{ SKID.AL_HEAL,5 }
 		}
 	},
-
 	[SKID.CR_DEFENDER] = {
 		"CR_DEFENDER";
-		SkillName = "Defender",
+		SkillName = "Defending Aura",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.CR_SHIELDBOOMERANG,1 }
 		}
 	},
-
 	[SKID.CR_SPEARQUICKEN] = {
 		"CR_SPEARQUICKEN";
 		SkillName = "Spear Quicken",
@@ -1818,56 +1682,58 @@ SKILL_INFO_LIST = {
 			{ SKID.KN_SPEARMASTERY,10 }
 		}
 	},
-
+	[SKID.CR_SHRINK] = {
+		"CR_SHRINK";
+		SkillName = "Shrink",
+		MaxLv = 1,
+		Type = "Quest",
+	},
+	
+	-- Monk Skills --
 	[SKID.MO_IRONHAND] = {
 		"MO_IRONHAND";
-		SkillName = "Iron Hand",
+		SkillName = "Iron Fists",
 		MaxLv = 10,
 		_NeedSkillList = {
 			{ SKID.AL_DEMONBANE,10 },
 			{ SKID.AL_DP,10 }
 		}
 	},
-
 	[SKID.MO_SPIRITSRECOVERY] = {
 		"MO_SPIRITSRECOVERY";
-		SkillName = "Spirits Recovery",
+		SkillName = "Spiritual Cadence",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.MO_BLADESTOP,2 }
 		}
 	},
-
 	[SKID.MO_CALLSPIRITS] = {
 		"MO_CALLSPIRITS";
-		SkillName = "Call Spirits",
+		SkillName = "Summon Spirit Sphere",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.MO_IRONHAND,2 }
 		}
 	},
-
 	[SKID.MO_ABSORBSPIRITS] = {
 		"MO_ABSORBSPIRITS";
-		SkillName = "Absorb Spirits",
+		SkillName = "Spiritual Sphere Absorption",
 		MaxLv = 1,
 		_NeedSkillList = {
 			{ SKID.MO_CALLSPIRITS,5 }
 		}
 	},
-
 	[SKID.MO_TRIPLEATTACK] = {
 		"MO_TRIPLEATTACK";
-		SkillName = "Triple Attack",
+		SkillName = "Raging Trifecta Blow",
 		MaxLv = 10,
 		_NeedSkillList = {
 			{ SKID.MO_DODGE,5 }
 		}
 	},
-
 	[SKID.MO_BODYRELOCATION] = {
 		"MO_BODYRELOCATION";
-		SkillName = "Body Relocation",
+		SkillName = "Snap",
 		MaxLv = 1,
 		_NeedSkillList = {
 			{ SKID.MO_SPIRITSRECOVERY,2 },
@@ -1875,128 +1741,111 @@ SKILL_INFO_LIST = {
 			{ SKID.MO_STEELBODY,3 }
 		}
 	},
-
 	[SKID.MO_DODGE] = {
 		"MO_DODGE";
-		SkillName = "Dodge",
+		SkillName = "Flee",
 		MaxLv = 10,
 		_NeedSkillList = {
 			{ SKID.MO_IRONHAND,5 },
 			{ SKID.MO_CALLSPIRITS,5 }
-		}		
+		}
 	},
-
 	[SKID.MO_INVESTIGATE] = {
 		"MO_INVESTIGATE";
-		SkillName = "Investigate",
+		SkillName = "Occult Impaction",
 		MaxLv = 5,
 		SpAmount = { 10, 14, 17, 19, 20 },
 		_NeedSkillList = {
 			{ SKID.MO_CALLSPIRITS,5 }
-		}		
+		}
 	},
-
 	[SKID.MO_FINGEROFFENSIVE] = {
 		"MO_FINGEROFFENSIVE";
-		SkillName = "Finger Offensive",
+		SkillName = "Throw Spirit Sphere",
 		MaxLv = 5,
 		SpAmount = { 10, 10, 10, 10, 10 },
 		_NeedSkillList = {
 			{ SKID.MO_INVESTIGATE,3 }
-		}		
+		}
 	},
-
 	[SKID.MO_STEELBODY] = {
 		"MO_STEELBODY";
-		SkillName = "Steel Body",
+		SkillName = "Mental Strength",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.MO_COMBOFINISH,3 }
-		}			
+		}
 	},
-
 	[SKID.MO_BLADESTOP] = {
 		"MO_BLADESTOP";
-		SkillName = "Blade Stop",
+		SkillName = "Root",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.MO_DODGE,5 }
-		}	
+		}
 	},
-
 	[SKID.MO_EXPLOSIONSPIRITS] = {
 		"MO_EXPLOSIONSPIRITS";
-		SkillName = "Critical Explosion",
+		SkillName = "Fury",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.MO_ABSORBSPIRITS,1 }
-		}	
+		}
 	},
-
 	[SKID.MO_EXTREMITYFIST] = {
 		"MO_EXTREMITYFIST";
-		SkillName = "Asura Strike",
+		SkillName = "Guillotine Fist",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.MO_EXPLOSIONSPIRITS,3 },
 			{ SKID.MO_FINGEROFFENSIVE,3 }
-		}	
+		}
 	},
-
 	[SKID.MO_CHAINCOMBO] = {
 		"MO_CHAINCOMBO";
-		SkillName = "Chain Combo",
+		SkillName = "Raging Quadruple Blow",
 		MaxLv = 5,
 		SpAmount = { 11, 12, 13, 14, 15 },
 		_NeedSkillList = {
 			{ SKID.MO_TRIPLEATTACK,5 }
 		}	
 	},
-
 	[SKID.MO_COMBOFINISH] = {
 		"MO_COMBOFINISH";
-		SkillName = "Combo Finish",
+		SkillName = "Raging Thrust",
 		MaxLv = 5,
 		SpAmount = { 11, 12, 13, 14, 15 },
 		_NeedSkillList = {
 			{ SKID.MO_CHAINCOMBO,3 }
-		}	
+		}
 	},
-
+	[SKID.MO_KITRANSLATION] = {
+		"MO_KITRANSLATION";
+		SkillName = "Spiritual Bestowment",
+		MaxLv = 1,
+		Type = "Quest",
+	},
+	[SKID.MO_BALKYOUNG] = {
+		"MO_BALKYOUNG";
+		SkillName = "Excruciating Palm",
+		MaxLv = 1,
+		Type = "Quest",
+	},
+	
+	-- Sage Skills --
 	[SKID.SA_ADVANCEDBOOK] = {
 		"SA_ADVANCEDBOOK";
-		SkillName = "Advanced Book",
+		SkillName = "Study",
 		MaxLv = 10,
 	},
-
 	[SKID.SA_CASTCANCEL] = {
 		"SA_CASTCANCEL";
 		SkillName = "Cast Cancel",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.SA_ADVANCEDBOOK,2 }
-		}	
-	},
-
-	[SKID.SA_MAGICROD] = {
-		"SA_MAGICROD";
-		SkillName = "Magic Rod",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.SA_ADVANCEDBOOK,4 }
-		}	
-
-	},
-
-	[SKID.SA_SPELLBREAKER] = {
-		"SA_SPELLBREAKER";
-		SkillName = "Spell Breaker",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.SA_MAGICROD,1 }
 		}
 	},
-
 	[SKID.SA_FREECAST] = {
 		"SA_FREECAST";
 		SkillName = "Free Cast",
@@ -2005,65 +1854,30 @@ SKILL_INFO_LIST = {
 			{ SKID.SA_CASTCANCEL,1 }
 		}
 	},
-
+	[SKID.SA_SPELLBREAKER] = {
+		"SA_SPELLBREAKER";
+		SkillName = "Spell Breaker",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.SA_MAGICROD,1 }
+		}
+	},
 	[SKID.SA_AUTOSPELL] = {
 		"SA_AUTOSPELL";
-		SkillName = "Auto Spell",
+		SkillName = "Hindsight",
 		MaxLv = 10,
 		_NeedSkillList = {
 			{ SKID.SA_FREECAST,4 }
-		}		
-	},
-
-	[SKID.SA_FLAMELAUNCHER] = {
-		"SA_FLAMELAUNCHER";
-		SkillName = "Flame Launcher",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.MG_FIREBOLT,1 },
-			{ SKID.SA_ADVANCEDBOOK,5 }
-		}		
-	},
-
-	[SKID.SA_FROSTWEAPON] = {
-		"SA_FROSTWEAPON";
-		SkillName = "Frost Weapon",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.MG_COLDBOLT,1 },
-			{ SKID.SA_ADVANCEDBOOK,5 }
-		}	
-	},
-
-	[SKID.SA_LIGHTNINGLOADER] = {
-		"SA_LIGHTNINGLOADER";
-		SkillName = "Lightning Loader",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.MG_LIGHTNINGBOLT,1 },
-			{ SKID.SA_ADVANCEDBOOK,5 }
-		}	
-	},
-
-	[SKID.SA_SEISMICWEAPON] = {
-		"SA_SEISMICWEAPON";
-		SkillName = "Seismic Weapon",
-		MaxLv = 5,
-		_NeedSkillList = {
-			{ SKID.MG_STONECURSE,1 },
-			{ SKID.SA_ADVANCEDBOOK,5 }
 		}
 	},
-
-	[SKID.SA_DRAGONOLOGY] = {
-		"SA_DRAGONOLOGY";
-		SkillName = "Dragonology",
+	[SKID.SA_MAGICROD] = {
+		"SA_MAGICROD";
+		SkillName = "Magic Rod",
 		MaxLv = 5,
 		_NeedSkillList = {
-			{ SKID.SA_ADVANCEDBOOK,9 }
+			{ SKID.SA_ADVANCEDBOOK,4 }
 		}
 	},
-
 	[SKID.SA_VOLCANO] = {
 		"SA_VOLCANO";
 		SkillName = "Volcano",
@@ -2072,7 +1886,6 @@ SKILL_INFO_LIST = {
 			{ SKID.SA_FLAMELAUNCHER,2 }
 		}
 	},
-
 	[SKID.SA_DELUGE] = {
 		"SA_DELUGE";
 		SkillName = "Deluge",
@@ -2081,19 +1894,17 @@ SKILL_INFO_LIST = {
 			{ SKID.SA_FROSTWEAPON,2 }
 		}
 	},
-
 	[SKID.SA_VIOLENTGALE] = {
 		"SA_VIOLENTGALE";
-		SkillName = "Violent Gale",
+		SkillName = "Whirlwind",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.SA_LIGHTNINGLOADER,2 }
 		}
 	},
-
 	[SKID.SA_LANDPROTECTOR] = {
 		"SA_LANDPROTECTOR";
-		SkillName = "Land Protector",
+		SkillName = "Magnetic Earth",
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.SA_DELUGE,3 },
@@ -2101,7 +1912,50 @@ SKILL_INFO_LIST = {
 			{ SKID.SA_VOLCANO,3 }
 		}
 	},
-
+	[SKID.SA_FLAMELAUNCHER] = {
+		"SA_FLAMELAUNCHER";
+		SkillName = "Endow Blaze",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.MG_FIREBOLT,1 },
+			{ SKID.SA_ADVANCEDBOOK,5 }
+		}		
+	},
+	[SKID.SA_FROSTWEAPON] = {
+		"SA_FROSTWEAPON";
+		SkillName = "Endow Tsunami",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.MG_COLDBOLT,1 },
+			{ SKID.SA_ADVANCEDBOOK,5 }
+		}	
+	},
+	[SKID.SA_LIGHTNINGLOADER] = {
+		"SA_LIGHTNINGLOADER";
+		SkillName = "Endow Tornado",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.MG_LIGHTNINGBOLT,1 },
+			{ SKID.SA_ADVANCEDBOOK,5 }
+		}	
+	},
+	[SKID.SA_SEISMICWEAPON] = {
+		"SA_SEISMICWEAPON";
+		SkillName = "Endow Quake",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.MG_STONECURSE,1 },
+			{ SKID.SA_ADVANCEDBOOK,5 }
+		}
+	},
+	[SKID.SA_DRAGONOLOGY] = {
+		"SA_DRAGONOLOGY";
+		SkillName = "Dragonology",
+		MaxLv = 5,
+		_NeedSkillList = {
+			{ SKID.SA_ADVANCEDBOOK,9 }
+		}
+	},
 	[SKID.SA_DISPELL] = {
 		"SA_DISPELL";
 		SkillName = "Dispell",
@@ -2110,10 +1964,9 @@ SKILL_INFO_LIST = {
 			{ SKID.SA_SPELLBREAKER,3 }
 		}	
 	},
-
 	[SKID.SA_ABRACADABRA] = {
 		"SA_ABRACADABRA";
-		SkillName = "Abracadabra",
+		SkillName = "Hocus-pocus",
 		MaxLv = 10,
 		_NeedSkillList = {
 			{ SKID.SA_AUTOSPELL,5 },
@@ -2122,31 +1975,28 @@ SKILL_INFO_LIST = {
 		}	
 	},
 
-	[SKID.SA_MONOCELL] = {
-		"SA_MONOCELL";
-		SkillName = "Monocell",
-	},
-
+	-- Hocus-pocus Skills --
 	[SKID.SA_CLASSCHANGE] = {
 		"SA_CLASSCHANGE";
 		SkillName = "Class Change",
 	},
-
+	[SKID.SA_DEATH] = {
+		"SA_DEATH";
+		SkillName = "Grim Reaper",
+	},
+	[SKID.SA_MONOCELL] = {
+		"SA_MONOCELL";
+		SkillName = "Monocell",
+	},
 	[SKID.SA_SUMMONMONSTER] = {
 		"SA_SUMMONMONSTER";
-		SkillName = "Summon Monster",
+		SkillName = "Monster Chant",
 	},
 
 	[SKID.SA_REVERSEORCISH] = {
 		"SA_REVERSEORCISH";
 		SkillName = "Reverse Orcish",
 	},
-
-	[SKID.SA_DEATH] = {
-		"SA_DEATH";
-		SkillName = "Death",
-	},
-
 	[SKID.SA_FORTUNE] = {
 		"SA_FORTUNE";
 		SkillName = "Fortune",
@@ -2159,7 +2009,7 @@ SKILL_INFO_LIST = {
 
 	[SKID.SA_QUESTION] = {
 		"SA_QUESTION";
-		SkillName = "?",
+		SkillName = "Questioning",
 	},
 
 	[SKID.SA_GRAVITY] = {
@@ -2187,6 +2037,8 @@ SKILL_INFO_LIST = {
 		SkillName = "Coma",
 	},
 
+	
+	
 	[SKID.BD_ADAPTATION] = {
 		"BD_ADAPTATION";
 		SkillName = "Adaptation to Circumstances",
@@ -3303,14 +3155,6 @@ SKILL_INFO_LIST = {
 		SkillName = "Alchemist Spirit",
 		MaxLv = 5,
 	},
-
-	[SKID.AM_BERSERKPITCHER] = {
-		"AM_BERSERKPITCHER";
-		SkillName = "Berserk Pitcher",
-		MaxLv = 1,
-		Type = "Soul",
-	},
-
 	[SKID.SL_MONK] = {
 		"SL_MONK";
 		SkillName = "Monk Spirit",
@@ -3399,16 +3243,6 @@ SKILL_INFO_LIST = {
 		MaxLv = 5,
 		_NeedSkillList = {
 			{ SKID.SL_ALCHEMIST,1 }
-		}
-	},
-
-	[SKID.BS_ADRENALINE2] = {
-		"BS_ADRENALINE2";
-		SkillName = "Full Adrenaline Rush",
-		MaxLv = 1,
-		Type = "Soul",
-		_NeedSkillList = {
-			{ SKID.BS_ADRENALINE,5 }
 		}
 	},
 
@@ -3743,57 +3577,6 @@ SKILL_INFO_LIST = {
 			{ SKID.SL_SUPERNOVICE,5 }
 		}
 	},
-
-	[SKID.KN_ONEHAND] = {
-		"KN_ONEHAND";
-		SkillName = "One-Hand Quicken",
-		MaxLv = 1,
-		Type = "Soul",
-		_NeedSkillList = {
-			{ SKID.KN_TWOHANDQUICKEN,10 }
-		}
-	},
-
-	[SKID.AM_TWILIGHT1] = {
-		"AM_TWILIGHT1";
-		SkillName = "Twilight Alchemy",
-		MaxLv = 1,
-		Type = "Soul",
-		_NeedSkillList = {
-			{ SKID.AM_PHARMACY,10 }
-		}
-	},
-
-	[SKID.AM_TWILIGHT2] = {
-		"AM_TWILIGHT2";
-		SkillName = "Twilight Alchemy",
-		MaxLv = 1,
-		Type = "Soul",
-		_NeedSkillList = {
-			{ SKID.AM_PHARMACY,10 }
-		}
-	},
-
-	[SKID.AM_TWILIGHT3] = {
-		"AM_TWILIGHT3";
-		SkillName = "Twilight Alchemy",
-		MaxLv = 1,
-		Type = "Soul",
-		_NeedSkillList = {
-			{ SKID.AM_PHARMACY,10 }
-		}
-	},
-
-	[SKID.HT_POWER] = {
-		"HT_POWER";
-		SkillName = "Beast Strafing",
-		MaxLv = 1,
-		Type = "Soul",
-		_NeedSkillList = {
-			{ SKID.AC_DOUBLE,10 }
-		}
-	},
-
 	[SKID.GS_GLITTERING] = {
 		"GS_GLITTERING";
 		SkillName = "Flip the Coin",
@@ -4904,42 +4687,6 @@ SKILL_INFO_LIST = {
 		"ALL_WEWISH";
 		SkillName = "We Wish",
 	},
-
-	[SKID.KN_CHARGEATK] = {
-		"KN_CHARGEATK";
-		SkillName = "Charge Attack",
-		MaxLv = 1,
-		Type = "Quest",
-	},
-
-	[SKID.CR_SHRINK] = {
-		"CR_SHRINK";
-		SkillName = "Shrink",
-		MaxLv = 1,
-		Type = "Quest",
-	},
-
-	[SKID.AS_SONICACCEL] = {
-		"AS_SONICACCEL";
-		SkillName = "Sonic Acceleration",
-		MaxLv = 1,
-		Type = "Quest",
-	},
-
-	[SKID.AS_VENOMKNIFE] = {
-		"AS_VENOMKNIFE";
-		SkillName = "Throw Venom Knife",
-		MaxLv = 1,
-		Type = "Quest",
-	},
-
-	[SKID.RG_CLOSECONFINE] = {
-		"RG_CLOSECONFINE";
-		SkillName = "Close Confine",
-		MaxLv = 1,
-		Type = "Quest",
-	},
-
 	[SKID.WZ_SIGHTBLASTER] = {
 		"WZ_SIGHTBLASTER";
 		SkillName = "Sight Blaster",
@@ -4960,14 +4707,6 @@ SKILL_INFO_LIST = {
 		MaxLv = 1,
 		Type = "Quest",
 	},
-
-	[SKID.HT_PHANTASMIC] = {
-		"HT_PHANTASMIC";
-		SkillName = "Phantasmic Arrow",
-		MaxLv = 1,
-		Type = "Quest",
-	},
-
 	[SKID.BA_PANGVOICE] = {
 		"BA_PANGVOICE";
 		SkillName = "Pang Voice",
@@ -4981,42 +4720,6 @@ SKILL_INFO_LIST = {
 		MaxLv = 1,
 		Type = "Quest",
 	},
-
-	[SKID.BS_UNFAIRLYTRICK] = {
-		"BS_UNFAIRLYTRICK";
-		SkillName = "Unfair Trick",
-		MaxLv = 1,
-		Type = "Quest",
-	},
-
-	[SKID.BS_GREED] = {
-		"BS_GREED";
-		SkillName = "Greed",
-		MaxLv = 1,
-		Type = "Quest",
-	},
-
-	[SKID.PR_REDEMPTIO] = {
-		"PR_REDEMPTIO";
-		SkillName = "Redemptio",
-		MaxLv = 1,
-		Type = "Quest",
-	},
-
-	[SKID.MO_KITRANSLATION] = {
-		"MO_KITRANSLATION";
-		SkillName = "Ki Translation",
-		MaxLv = 1,
-		Type = "Quest",
-	},
-
-	[SKID.MO_BALKYOUNG] = {
-		"MO_BALKYOUNG";
-		SkillName = "Ki Explosion",
-		MaxLv = 1,
-		Type = "Quest",
-	},
-
 	[SKID.SA_ELEMENTGROUND] = {
 		"SA_ELEMENTGROUND";
 		SkillName = "Elemental Change (Earth)",
@@ -8005,7 +7708,7 @@ SKILL_INFO_LIST = {
 
 	[SKID.MA_DOUBLE] = {
 		"MA_DOUBLE";
-		SkillName = "Double Strafing",
+		SkillName = "Double Strafe",
 	},
 
 	[SKID.MA_SHOWER] = {
@@ -8251,6 +7954,12 @@ SKILL_INFO_LIST = {
 	[SKID.GD_ITEMEMERGENCYCALL] = {
 		"GD_ITEMEMERGENCYCALL";
 		SkillName = "Item Emergency Call",
-	}
+	},
 
+	[SKID.GM_BLESSING] = {
+		"GM_BLESSING";
+		SkillName = "GM's Blessing",
+		MaxLv = 1,
+		SpAmount = { 10 },
+	},
 }
