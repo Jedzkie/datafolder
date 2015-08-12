@@ -64,9 +64,7 @@ SKILL_DESCRIPT = {
 		"[Lv 9]: ^777777Atk +36^000000",
 		"[Lv 10]: ^777777Atk +40^000000",
 	},
-
 	[SKID.SM_TWOHAND] = {
-
 		"Two-Handed Sword Mastery",
 		"MAX Lv : 10",
 		"Type:^000099 Passive ^000000",
@@ -82,9 +80,7 @@ SKILL_DESCRIPT = {
 		"[Lv 9]: ^777777Atk +36^000000",
 		"[Lv 10]: ^777777Atk +40^000000",
 	},
-
 	[SKID.SM_RECOVERY] = {
-
 		"Increase Recuperative Power",
 		"MAX Lv : 10",
 		"Type:^000099 Passive ^000000",
@@ -100,9 +96,7 @@ SKILL_DESCRIPT = {
 		"[Lv 9]: ^777777HP +45/10 sec^000000",
 		"[Lv 10]: ^777777HP +50/10 sec^000000",
 	},
-
 	[SKID.SM_BASH] = {
-
 		"Bash",
 		"MAX Lv : 10",
 		"Type:^777777 Offensive^000000",

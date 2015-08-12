@@ -4,7 +4,7 @@
 	<servertype>sakray</servertype>
 	<extendedslot />
 	<connection>
-		<address>192.168.1.36</address>
+		<address>127.0.0.1</address>
 		<port>6901</port>
 		<version>25</version>
 		<langtype>1</langtype>

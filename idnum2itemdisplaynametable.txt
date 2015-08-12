@@ -2824,8 +2824,8 @@
 5262#Gold_Tiara#
 5263#Pagdayaw#
 5264#Australian_Flag_Hat#
-5265#Rental_Apple_of_Archer#
-5266#Rental_Bunny_Band#
+5265#Apple_of_Archer#
+5266#Bunny_Band#
 5267#Sakkat#
 5268#Grand_Circlet#
 5269#Flapping_Angel_Wing#
@@ -8400,10 +8400,3 @@
 25006#99_Battle_Manual_Box#
 25007#Beast_Powder#
 25008#Beast_Powder_Box#
-
-30000#Level_Up_Box_(Lv10)#
-30001#Level_Up_Box_(Lv30)#
-30002#Level_Up_Box_(Lv50)#
-30003#Level_Up_Box_(Lv70)#
-30004#Level_Up_Box_(Lv90)#
-30005#Level_Up_Box_(Lv99)#
